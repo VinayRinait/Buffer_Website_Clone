@@ -16,10 +16,12 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
+import { Routes, Route } from "react-router-dom";
+
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 const Links = ["Dashboard", "Channels", "User Data", "Login"];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({ children }) => (
   <Link
     px={2}
     py={1}
@@ -106,3 +108,5 @@ export default function AdminNavbar() {
     </>
   );
 }
+
+// : { children: ReactNode }
