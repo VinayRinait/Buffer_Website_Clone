@@ -1,13 +1,13 @@
-import logo from "./logo.svg";
+
 import "./App.css";
-import Admin from "./components/Admin";
-import Analytic from "./pages/Analytic";
+
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
     <>
       {/* <Admin /> */}
-      <Analytic />
+      <Navbar/>
     </>
   );
 }
