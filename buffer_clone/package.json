@@ -13,9 +13,8 @@
 >>>>>>> ea0ddd0304ccf7045a07aeb79fc385e5b1a7d8d6
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/joy": "^5.0.0-alpha.53",
-    "@mui/material": "^5.10.13",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -31,21 +30,23 @@
     "react-slick": "^0.29.0",
     "styled-components": "^5.3.6",
     "typescript": "^4.9.4",
-=======
-<<<<<<< HEAD
+
     "framer-motion": "^7.9.0",
-=======
+
     "axios": "^1.2.1",
     "framer-motion": "^7.7.3",
->>>>>>> 9939173e795117c0d12dcbe807a15bde06363620
+
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
+
+    "react-slick": "^0.29.0",
+
     "redux": "^4.2.0",
->>>>>>> ea0ddd0304ccf7045a07aeb79fc385e5b1a7d8d6
+
     "web-vitals": "^2.1.4"
   },
   "scripts": {
