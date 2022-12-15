@@ -1,12 +1,15 @@
-import React from "react";
-import Instagram from "./pages/Instagram";
 
-const App = () => {
+import "./App.css";
+
+
+function App() {
   return (
-    <div>
-      <Instagram />
-    </div>
+    <>
+      {/* <Admin /> */}
+      {/* <Analytic /> */}
+      {/* <Publishing/> */}
+    </>
   );
-};
+}
 
 export default App;
