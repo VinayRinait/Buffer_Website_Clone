@@ -155,6 +155,7 @@ const Navbar = () => {
           </InputLeftElement>
 
           <Input placeholder="Search" />
+          {/* <h1>cjscb</h1> */}
         </InputGroup>
       </Box>
       <Box>
