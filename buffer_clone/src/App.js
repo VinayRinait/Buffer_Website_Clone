@@ -13,21 +13,22 @@ import "./App.css";
 import { HomePage } from "./pages/HomePage";
 function App() {
   return (
-    <>
-      {/* <Admin /> */}
-      {/* <Analytic /> */}
-      <HomePage/>
-    </>
+    <></>
+    // <>
+    //   {/* <Admin /> */}
+    //   {/* <Analytic /> */}
+    //   <HomePage/>
+    // </>
 
-    <div>
-       {/* <Routes>
-        <Route path="" element={<AdminUserData />} />
-        <Route path="login" element={<Admin />} />
-      </Routes> */}
-      <Admin />
+    // <div>
+    //    {/* <Routes>
+    //     <Route path="" element={<AdminUserData />} />
+    //     <Route path="login" element={<Admin />} />
+    //   </Routes> */}
+    //   <Admin />
 
-      <AdminLogin />
-    </div>
+    //   <AdminLogin />
+    // </div>
 
   );
 }

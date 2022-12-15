@@ -20,11 +20,11 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
+
     "react-slick": "^0.29.0",
-=======
+
     "redux": "^4.2.0",
->>>>>>> f4df1f06a4df6ad5cac6ca2ed67a203dc283bf42
+
     "web-vitals": "^2.1.4"
   },
   "scripts": {
