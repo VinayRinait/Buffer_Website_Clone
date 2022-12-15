@@ -3,14 +3,16 @@ import {
   ADMIN_AUTH_SIGN_IN_LOADING,
   ADMIN_AUTH_SIGN_IN_SUCCESS,
   ADMIN_AUTH_SIGN_OUT,
-  ADMIN_RESET_AUTH,
 } from "../AdminRedux/admin.actiontypes";
+
+let token = localStorage.getItem("token") || "";
 
 let initialState = {
   loading: false,
   error: false,
-  token: "",
-  isAuth: false,
+  isAuth: !!token,
+  token: token,
+  data: [],
 };
 
 export let adminReducer = (state = initialState, { type, payload }) => {
@@ -30,15 +32,18 @@ export let adminReducer = (state = initialState, { type, payload }) => {
       };
     }
     case ADMIN_AUTH_SIGN_IN_SUCCESS: {
+      localStorage.setItem("token", payload.token);
       return {
         ...state,
         loading: false,
         error: false,
         isAuth: true,
         token: payload.token,
+        data: payload.data,
       };
     }
     case ADMIN_AUTH_SIGN_OUT: {
+      localStorage.removeItem("token");
       return {
         ...state,
         isAuth: false,

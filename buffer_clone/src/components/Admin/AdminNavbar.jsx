@@ -16,11 +16,16 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-const Links = ["Dashboard", "Channels", "User Data", "Login"];
-
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../store/AdminRedux/admin.actions";
+const Links = [
+  { title: "Channels", to: "/" },
+  { title: "User Data", to: "/adminuserpage" },
+];
+// { title: "Login", to: "/login" },
 const NavLink = ({ children }) => (
   <Link
     px={2}
@@ -38,7 +43,17 @@ const NavLink = ({ children }) => (
 
 export default function AdminNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  let { isAuth } = useSelector((store) => store.authManager);
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
+  console.log(isAuth);
+  let handleClick = () => {
+    if (isAuth) {
+      dispatch(logout());
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -58,8 +73,14 @@ export default function AdminNavbar() {
               display={{ base: "none", md: "flex" }}
             >
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <Link key={link.title} href={link.to}>
+                  {link.title}
+                </Link>
               ))}
+
+              <Button onClick={handleClick}>
+                {isAuth ? "Logout" : "Login"}
+              </Button>
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
