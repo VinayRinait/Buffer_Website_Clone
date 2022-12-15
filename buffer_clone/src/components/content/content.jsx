@@ -2,7 +2,8 @@ import React from 'react'
 
 const content = () => {
   return (
-    <div>content</div>
+    <div>
+  <h1>go</h1></div>
   )
 }
 
