@@ -21,38 +21,40 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Badge,
+  Button,
+  Center,
+  Heading,
+  Image,
+  Stack,
 } from "@chakra-ui/react";
 import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
   FiSettings,
   FiMenu,
   FiBell,
   FiChevronDown,
+  FiInstagram,
 } from "react-icons/fi";
+import { FaFacebookF, FaTiktok, FaBlogger } from "react-icons/fa";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 
 const LinkItems = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
+  { name: "INSTAGRAM", icon: FiInstagram },
+  { name: "FACEBOOK", icon: FaFacebookF },
+  { name: "TIKTOK", icon: FaTiktok },
+  { name: "BLOGGER", icon: FaBlogger },
   { name: "Settings", icon: FiSettings },
 ];
 
 export default function AnalyticSidebar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.500", "gray.900")}>
-      <Box display={"flex"}>
-        <SidebarContent
-          onClose={() => onClose}
-          display={{ base: "none", md: "block" }}
-        />
-      </Box>
+    <Box minH="100vh" bg={useColorModeValue("gray.200", "gray.900")}>
+      <SidebarContent
+        onClose={() => onClose}
+        display={{ base: "none", md: "block" }}
+      />
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
@@ -69,12 +71,127 @@ export default function AnalyticSidebar({ children }) {
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
+        <ContentMiddle />
       </Box>
-      hhrfdhnrdfhrfdhr
     </Box>
   );
 }
+const ContentMiddle = () => {
+  return (
+    <Center>
+      <Stack
+        borderWidth="1px"
+        borderRadius="lg"
+        w={{ sm: "100%", md: "540px", lg: "100%" }}
+        height={{ sm: "476px", md: "20rem", lg: "100%" }}
+        direction={{ base: "column", md: "row" }}
+        bg={useColorModeValue("white", "gray.900")}
+        boxShadow={"2xl"}
+        padding={5}
+      >
+        <Flex flex={1} bg="blue.200">
+          <Image
+            objectFit="cover"
+            boxSize="100%"
+            src={
+              "https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+            }
+          />
+        </Flex>
+        <Stack
+          flex={1}
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          p={1}
+          pt={2}
+        >
+          <Heading fontSize={"2xl"} fontFamily={"body"}>
+            Lindsey James
+          </Heading>
+          <Text fontWeight={600} color={"gray.500"} size="sm" mb={4}>
+            @lindsey_jam3s
+          </Text>
+          <Text
+            textAlign={"center"}
+            color={useColorModeValue("gray.700", "gray.400")}
+            px={3}
+          >
+            Actress, musician, songwriter and artist. PM for work inquires or
+            <Link href={"#"} color={"blue.400"}>
+              #tag
+            </Link>
+            me in your posts
+          </Text>
+          <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              #art
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              #photography
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              #music
+            </Badge>
+          </Stack>
 
+          <Stack
+            width={"100%"}
+            mt={"2rem"}
+            direction={"row"}
+            padding={2}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <Button
+              flex={1}
+              fontSize={"sm"}
+              rounded={"full"}
+              _focus={{
+                bg: "gray.200",
+              }}
+            >
+              Message
+            </Button>
+            <Button
+              flex={1}
+              fontSize={"sm"}
+              rounded={"full"}
+              bg={"blue.400"}
+              color={"white"}
+              boxShadow={
+                "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
+              }
+              _hover={{
+                bg: "blue.500",
+              }}
+              _focus={{
+                bg: "blue.500",
+              }}
+            >
+              Follow
+            </Button>
+          </Stack>
+        </Stack>
+      </Stack>
+    </Center>
+  );
+};
 const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box

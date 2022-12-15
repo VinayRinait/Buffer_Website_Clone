@@ -5,7 +5,6 @@ const Analytic = () => {
   return (
     <>
       <AnalyticSidebar />
-      <h1>vvvvvv</h1>
     </>
   );
 };

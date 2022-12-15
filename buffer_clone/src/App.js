@@ -1,23 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Admin from "./components/Admin/Admin";
-// import Analytic from "./pages/Analytic";
-import AdminLogin from "./components/Admin/AdminLogin";
-import { Route, Routes } from "react-router-dom";
-import AdminUserData from "./components/Admin/AdminUserData";
+import React from "react";
+import Instagram from "./pages/Instagram";
 
-function App() {
+const App = () => {
   return (
     <div>
-       {/* <Routes>
-        <Route path="" element={<AdminUserData />} />
-        <Route path="login" element={<Admin />} />
-      </Routes> */}
-      <Admin />
-
-      <AdminLogin />
+      <Instagram />
     </div>
   );
-}
+};
 
 export default App;
