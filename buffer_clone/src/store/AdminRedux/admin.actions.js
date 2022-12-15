@@ -3,12 +3,11 @@ import {
   ADMIN_AUTH_SIGN_IN_LOADING,
   ADMIN_AUTH_SIGN_IN_SUCCESS,
   ADMIN_AUTH_SIGN_OUT,
-  ADMIN_RESET_AUTH,
 } from "../AdminRedux/admin.actiontypes";
 
 import axios from "axios";
 
-export let login = async (dispatch, creds) => {
+export let login = (creds) => async (dispatch) => {
   dispatch({ type: ADMIN_AUTH_SIGN_IN_LOADING });
   try {
     let response = await axios.post(`https://reqres.in/api/login`, creds);
