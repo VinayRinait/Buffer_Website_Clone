@@ -1,5 +1,7 @@
 
 import "./App.css";
+import Navbar2 from "./components/Navbar2";
+import Publishing from "./pages/Publishing";
 
 
 function App() {
@@ -7,7 +9,8 @@ function App() {
     <>
       {/* <Admin /> */}
       {/* <Analytic /> */}
-      {/* <Publishing/> */}
+      <Navbar2/>
+      <Publishing/>
     </>
   );
 }
