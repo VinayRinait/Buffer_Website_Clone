@@ -31,7 +31,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import Logo from "./Image/SocialHub.png"
+import Logo from "./Image/hub.png";
 import { Link, NavLink } from 'react-router-dom';
 
 
@@ -64,7 +64,7 @@ export function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-        <Image  boxSize="150px" borderRadius={"80px"} width={"25%"} src={Logo} alt='logo'/>
+        <Image marginLeft={10} boxSize="120px" borderRadius={"80px"} width={"15%"} src={Logo} alt='logo'/>
 
        
     
@@ -79,12 +79,12 @@ export function Navbar() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-         <Box fontSize={30} color="blue" >
+         <Box fontSize={25} color="blue" margin-top={20} >
 <Link to={"/login"} >Login</Link>
 </Box>
-<Box fontSize={30} color="blue" >
+{/* <Box fontSize={25} color="blue" margin-top={20}>
 <Link to={"/adminlogin"} >Admin</Link>
-</Box>
+</Box> */}
           <Button
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={20}
@@ -120,7 +120,7 @@ const DesktopNav = () => {
           <Popover trigger={'hover'} placement={'bottom-start'} >
             <PopoverTrigger >
               
-<NavLink style={{fontSize:"30px" , marginLeft:"20px" }} to={navItem.href}>{navItem.label} {navItem.pal}</NavLink>
+<NavLink style={{fontSize:"25px" , marginLeft:"100px"  }} to={navItem.href}>{navItem.label} {navItem.pal}</NavLink>
 
 
             </PopoverTrigger>
@@ -147,7 +147,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel,img,image }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel,img,image }) => {
   return (
     <Link
       href={href}
@@ -202,7 +202,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -251,14 +251,14 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
+// interface {
+//   label: string;
+//   subLabel?: string;
+//   children?: Array<NavItem>;
+//   href?: string;
+// }
 
-const NAV_ITEMS: Array<NavItem> = [
+const NAV_ITEMS = [
   {
     label: 'Tools',
     pal: <ChevronDownIcon/>,
@@ -351,13 +351,13 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Blog',
     href: '/resources',
   },
-  {
-    label: 'About',
-    href: '/about',
-  },
-  {
-    label: 'Customers',
-    href: '/case-studies',
-  },
+  // {
+  //   label: 'About',
+  //   href: '/about',
+  // },
+  // {
+  //   label: 'Customers',
+  //   href: '/case-studies',
+  // },
  
 ];
