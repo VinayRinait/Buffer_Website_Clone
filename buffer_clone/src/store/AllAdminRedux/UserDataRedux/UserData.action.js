@@ -12,9 +12,7 @@ import {
 export let getUser = () => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
-    let response = await axios.get(
-      "https://social-hub-orcin.vercel.app/userdata"
-    );
+    let response = await axios.get("https://estfiq.sse.codesandbox.io/userdata");
     dispatch({ type: USER_SUCCESS, payload: response.data });
   } catch (e) {
     dispatch({ type: USER_ERROR, payload: e.message });
@@ -26,7 +24,7 @@ export let addUser = (message) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
     let response = await axios.post(
-      `https://social-hub-orcin.vercel.app/userdata`,
+      `https://estfiq.sse.codesandbox.io/userdata/`,
       message
     );
     dispatch({ type: ADD_USER, payload: response.data });
@@ -40,7 +38,7 @@ export let updateUser = (id, changes) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
     let response = await axios.patch(
-      `https://social-hub-orcin.vercel.app/userdata/${id}`,
+      `https://estfiq.sse.codesandbox.io/userdata/${id}`,
       { ...changes }
     );
     dispatch({ type: UPDATE_USER, payload: response.data });
@@ -55,7 +53,7 @@ export let removeUser = (id) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
     let response = await axios.delete(
-      `https://social-hub-orcin.vercel.app/userdata/${id}`
+      `https://estfiq.sse.codesandbox.io/userdata/${id}`
     );
     dispatch({ type: REMOVE_USER, payload: id });
   } catch (e) {

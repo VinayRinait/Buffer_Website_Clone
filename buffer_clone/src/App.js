@@ -10,7 +10,7 @@ import Admin from "./components/Admin/Admin";
 function App() {
   return (
     <div>
-     
+      <Admin />
     </div>
   );
 }

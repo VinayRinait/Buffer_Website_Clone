@@ -16,6 +16,7 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
+
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
@@ -66,7 +67,7 @@ export default function AdminNavbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+            <Box><img src="" alt="" /></Box>
             <HStack
               as={"nav"}
               spacing={4}
@@ -120,8 +121,15 @@ export default function AdminNavbar() {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
-                <Link key={link.title} href={link.to}>{link.title}</Link>
+                <Link key={link.title} href={link.to}>
+                  {link.title}
+                </Link>
               ))}
+            </Stack>
+            <Stack>
+              <Button onClick={handleClick}>
+                {isAuth ? "Logout" : "Login"}
+              </Button>
             </Stack>
           </Box>
         ) : null}

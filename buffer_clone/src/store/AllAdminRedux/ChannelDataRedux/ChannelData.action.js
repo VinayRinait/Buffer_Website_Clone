@@ -13,7 +13,7 @@ export let getChannel = () => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.get(
-      "https://social-hub-orcin.vercel.app/channels"
+      "https://estfiq.sse.codesandbox.io/channeldata"
     );
     dispatch({ type: CHANNEL_SUCCESS, payload: response.data });
   } catch (e) {
@@ -26,7 +26,7 @@ export let addChannel = (message) => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.post(
-      `https://social-hub-orcin.vercel.app/channels`,
+      `https://estfiq.sse.codesandbox.io/channeldata`,
       message
     );
     dispatch({ type: ADD_CHANNEL, payload: response.data });
@@ -40,7 +40,7 @@ export let updateChannel = (id, changes) => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.patch(
-      `https://social-hub-orcin.vercel.app/channels/${id}`,
+      `https://estfiq.sse.codesandbox.io/channeldata/${id}`,
       { ...changes }
     );
     dispatch({ type: UPDATE_CHANNEL, payload: response.data });
@@ -55,7 +55,7 @@ export let removeChannel = (id) => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.delete(
-      `https://social-hub-orcin.vercel.app/channels/${id}`
+      `https://estfiq.sse.codesandbox.io/channeldata/${id}`
     );
     dispatch({ type: REMOVE_CHANNEL, payload: id });
   } catch (e) {

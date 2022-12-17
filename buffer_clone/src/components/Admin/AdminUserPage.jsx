@@ -22,9 +22,6 @@ const AdminUserPage = () => {
   let totalUsers = users.length;
 
   let dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
 
   let handleDelete = (id) => {
     dispatch(removeUser(id));
@@ -41,6 +38,10 @@ const AdminUserPage = () => {
     dispatch(addUser(data));
     setData({ id: "", name: "", avatar: "" });
   };
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   let { avatar, name, id } = data;
   return (
@@ -132,7 +133,7 @@ const AdminUserPage = () => {
               <img
                 src={el.avatar}
                 alt={el.name}
-                style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
             </Box>
             <Box>

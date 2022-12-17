@@ -41,7 +41,7 @@ const AdminChannelPage = () => {
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(getChannel());
-  }, [dispatch]);
+  }, []);
 
   let handleDelete = (id) => {
     dispatch(removeChannel(id));
@@ -156,7 +156,7 @@ const AdminChannelPage = () => {
               <img
                 src={el.logo}
                 alt={el.name}
-                style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
             </Box>
             <Box>
