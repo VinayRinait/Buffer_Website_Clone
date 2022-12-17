@@ -1,18 +1,11 @@
 import React from "react";
-import Instagram from "./pages/Instagram";
-import Userprofile from "./pages/Userprofile";
 
 import "./App.css";
-import Admin from "./components/Admin/Admin";
 
-// import "./App.css";
-// import { HomePage } from "./pages/HomePage";
+import "./App.css";
+
 function App() {
-  return (
-    <div>
-      <Admin />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;

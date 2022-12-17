@@ -1,7 +1,8 @@
 import React from 'react'
-import { Box } from "@chakra-ui/react"
-import { Link } from 'react-router-dom'
-import Contentbox from '../components/content/contentbox'
+import { Box ,Button} from "@chakra-ui/react"
+// import { Link } from 'react-router-dom'
+import Content from '../components/content/content'
+
 
 const Publishing = () => {
   return (
@@ -13,9 +14,10 @@ const Publishing = () => {
       xl: '25%', // 80em+
     }}
     display="flex"
-    gap={20}
+    gap={6}
     border="1px solid black"
   >
+         {/* first Container */}
         <Box border="1px solid lightgrey" fontSize={15} font-family="Roboto ,sansrif" width="20%" height={500} justifyItems="center" p={3} fontWeight={600} >
           <Box display="flex" gap='2'  borderRadius={5} padding="2"_hover={{
           background: "lightblue",
@@ -37,34 +39,18 @@ const Publishing = () => {
           }}>
           <img width={20} src="https://img.icons8.com/material-sharp/512/graph.png" alt="content" />
           <h1 width="100%">Campaigns</h1>
+          
           </Box>
-        </Box>
-        {/* Second Container */}
-        <Box mt={5} border="1px solid black" width="70%" >
-          <Box>
-                <Box>
-                    <h1>Content</h1>
-                </Box>
-                <Box>
-                    
-
-                </Box>
+          <hr style={{border:"1px solid lightgrey", marginTop:"10px"}}></hr>
+          <Box  mt={290} >
+          <Button colorScheme="white" color="black" border="1px solid black" p={5}>Manage Channels</Button>
           </Box>
          
-
-
-
-          <Box mt={5} display="flex">
-          <Contentbox/>
-          </Box>
+        </Box>
+        {/* Second Container */}
+          <Content />
           
         </Box>
-
-
-
-
-
-  </Box>
 
 
     </>
