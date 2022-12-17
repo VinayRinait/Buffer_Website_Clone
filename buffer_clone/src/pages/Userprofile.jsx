@@ -141,7 +141,7 @@ const NavItem = ({ icon, children, ...rest }) => {
     </Link>
   );
 };
-
+// jklgvjrd
 const MobileNav = ({ onOpen, ...rest }) => {
   return (
     <Flex
