@@ -20,7 +20,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/AdminRedux/admin.actions";
+import { logout } from "../../store/AllAdminRedux/AdminRedux/admin.actions";
 const Links = [
   { title: "Channels", to: "/" },
   { title: "User Data", to: "/adminuserpage" },
@@ -46,7 +46,7 @@ export default function AdminNavbar() {
   let { isAuth } = useSelector((store) => store.authManager);
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  console.log(isAuth);
+  // console.log(isAuth);
   let handleClick = () => {
     if (isAuth) {
       dispatch(logout());
@@ -120,7 +120,7 @@ export default function AdminNavbar() {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <Link key={link.title} href={link.to}>{link.title}</Link>
               ))}
             </Stack>
           </Box>
