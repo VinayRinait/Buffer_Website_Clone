@@ -1,12 +1,7 @@
 import React from "react";
 
 function LoginPage() {
-  return (
-    <div>
-      LoginPage
-      <h1>ckncv</h1>
-    </div>
-  );
+  return <div>LoginPage</div>;
 }
 
 export default LoginPage;

@@ -6,10 +6,12 @@ import "./App.css";
 
 import "./App.css";
 import { HomePage } from "./pages/HomePage";
+import Analytic from "./pages/Analytic";
 function App() {
   return (
     <div>
-      {/* <Instagram /> */}
+      {/* <Analytic /> */}
+
       <Userprofile />
     </div>
   );
