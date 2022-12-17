@@ -12,18 +12,20 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { login } from "../../store/AllAdminRedux/AdminRedux/admin.actions";
+
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { login } from "../../store/AdminRedux/admin.actions";
 import { useLocation, useNavigate } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
 
 const AdminLogin = () => {
   let [loginCreds, setLoginCreds] = useState({});
-  let { isAuth } = useSelector((store) => store.authManager);
+
   let dispatch = useDispatch();
-  //   let navigate = useNavigate();
-  //   let { state } = useLocation();
+  let navigate = useNavigate();
+  let { isAuth } = useSelector((store) => store.authManager);
+  let { state } = useLocation();
+
   let handleChange = (e) => {
     let { name, value } = e.target;
     setLoginCreds({
@@ -31,21 +33,22 @@ const AdminLogin = () => {
       [name]: value,
     });
   };
-  console.log(loginCreds);
+  // console.log(loginCreds);
+
   let handleSubmit = (e) => {
     e.preventDefault();
-    login(dispatch, loginCreds);
+    dispatch(login(loginCreds));
   };
 
-  //   useEffect(() => {
-  //     if (isAuth) {
-  //       if (state.from) {
-  //         navigate(state.from, { replace: true });
-  //       } else {
-  //         navigate("/");
-  //       }
-  //     }
-  //   }, [isAuth]);
+  useEffect(() => {
+    if (isAuth) {
+      if (state.from) {
+        navigate(state.from, { replace: true });
+      } else {
+        navigate("/");
+      }
+    }
+  }, [isAuth, navigate]);
 
   return (
     <div>

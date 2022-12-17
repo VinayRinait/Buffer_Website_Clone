@@ -38,6 +38,7 @@ import {
 import { FaFacebookF, FaTiktok, FaBlogger } from "react-icons/fa";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
+import Logo from "./../images/logo.png";
 
 const LinkItems = [
   { name: "INSTAGRAM", icon: FiInstagram },
@@ -50,7 +51,7 @@ const LinkItems = [
 export default function AnalyticSidebar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.200", "gray.900")}>
+    <Box minH="100vh" bg={useColorModeValue("whiteAlpha.400", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -85,7 +86,7 @@ const ContentMiddle = () => {
         w={{ sm: "100%", md: "540px", lg: "100%" }}
         height={{ sm: "476px", md: "20rem", lg: "100%" }}
         direction={{ base: "column", md: "row" }}
-        bg={useColorModeValue("white", "gray.900")}
+        bg={useColorModeValue("whiteAlpha.400", "gray.900")}
         boxShadow={"2xl"}
         padding={5}
       >
@@ -196,7 +197,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue("whiteAlpha.400", "gray.900")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
       w={{ base: "full", md: 60 }}
@@ -205,9 +206,18 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        <Image
+          // display={{ base: "flex", md: "none" }}
+          // fontSize="2xl"
+          // fontFamily="monospace"
+          // fontWeight="bold"
+          src={Logo}
+          w="100px"
+          alt="logo"
+          h="150px"
+          pb={"30px"}
+          pt={"10px"}
+        />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
@@ -264,7 +274,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
       alignItems="center"
       bg={useColorModeValue("white", "gray.900")}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      borderBottomColor={useColorModeValue("whiteAlpha.400", "gray.900")}
       justifyContent={{ base: "space-between", md: "flex-end" }}
       {...rest}
     >
@@ -276,14 +286,15 @@ const MobileNav = ({ onOpen, ...rest }) => {
         icon={<FiMenu />}
       />
 
-      <Text
+      <Image
         display={{ base: "flex", md: "none" }}
-        fontSize="2xl"
-        fontFamily="monospace"
-        fontWeight="bold"
-      >
-        Logo
-      </Text>
+        // fontSize="2xl"
+        // fontFamily="monospace"
+        // fontWeight="bold"
+        src={Logo}
+        w="80px"
+        alt="logo"
+      />
 
       <HStack spacing={{ base: "0", md: "6" }}>
         <IconButton
@@ -323,7 +334,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               </HStack>
             </MenuButton>
             <MenuList
-              bg={useColorModeValue("white", "gray.900")}
+              bg={useColorModeValue("whiteAlpha.400", "gray.900")}
               borderColor={useColorModeValue("gray.200", "gray.700")}
             >
               <MenuItem>Profile</MenuItem>
