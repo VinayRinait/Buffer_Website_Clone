@@ -7,18 +7,31 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { StyledEngineProvider, CssVarsProvider } from '@mui/joy/styles';
 
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { BrowserRouter } from "react-router-dom";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <StyledEngineProvider injectFirst>
-    <CssVarsProvider>
+  <Provider store={store}>
+    <ChakraProvider>
       <BrowserRouter>
-        <ChakraProvider>
-          <App />
-        </ChakraProvider>
+        <App />
       </BrowserRouter>
-    </CssVarsProvider>
-  </StyledEngineProvider>
+    </ChakraProvider>
+  </Provider>
 );
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <StyledEngineProvider injectFirst>
+//     <CssVarsProvider>
+//       <BrowserRouter>
+//         <ChakraProvider>
+//           <App />
+//         </ChakraProvider>
+//       </BrowserRouter>
+//     </CssVarsProvider>
+//   </StyledEngineProvider>
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
