@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from "react";
 
 
@@ -24,3 +26,4 @@ function App() {
 }
 
 export default App;
+>>>>>>> a7fd4489a1e59db3ffb9ce730d3d0a6b19006b72
