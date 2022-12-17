@@ -1,0 +1,9 @@
+.Navbar2{
+    @media screen and (min-width: 680px) {
+       width:70%;
+        font-Size:12px;
+        gap:1px ;
+        
+
+      }
+}

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import {
   legacy_createStore,
   compose,
@@ -17,7 +17,7 @@ export let store = legacy_createStore(
   rootReducer,
   composeEnhancer(applyMiddleware(thunk))
 );
-=======
+
 // import {
 //   legacy_createStore,
 //   compose,
@@ -31,4 +31,4 @@ export let store = legacy_createStore(
 // });
 
 // export let store = legacy_createStore(rootReducer);
->>>>>>> a0477e3a4b5e95408f2afd772170e8c84e3629bf
+
