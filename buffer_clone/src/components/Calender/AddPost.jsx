@@ -120,9 +120,9 @@ const AddPost = () => {
               Create
             </Button> */}
             <Select  my={4}  bg={"blue"} color={"white"} width="160px" onClick={onOpen} >
-              <option onClick={handleClick} bg={"blue"}  value='Instagram Post'>Instagram Post</option>
-              <option onClick={handleClick} bg={"blue"}  value='Facebook Post'>Facebook Post </option>
-              <option onClick={handleClick} bg={"blue"}  value='Twitter Post'>Twitter Post</option>
+              <option  color={"white"} onClick={handleClick} bg={"blue"}  value='Instagram Post'>Instagram Post</option>
+              <option  bg={"blue"} color={"white"} onClick={handleClick}  value='Facebook Post'>Facebook Post </option>
+              <option  bg={"blue"} color={"white"} onClick={handleClick}   value='Twitter Post'>Twitter Post</option>
             </Select> 
             <Button onClick={onClose}>close</Button>
           </ModalBody>
