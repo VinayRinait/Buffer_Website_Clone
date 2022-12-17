@@ -12,7 +12,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { login } from "../../store/AdminRedux/admin.actions";
+import { login } from "../../store/AllAdminRedux/AdminRedux/admin.actions";
 
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
