@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> e289e2bfdce2d1505ecd5760b078d24fab039c34
 import {
   legacy_createStore,
   compose,
@@ -20,3 +24,21 @@ export let store = legacy_createStore(
   rootReducer,
   composeEnhancer(applyMiddleware(thunk))
 );
+<<<<<<< HEAD
+
+// import {
+//   legacy_createStore,
+//   compose,
+//   applyMiddleware,
+//   combineReducers,
+// } from "redux";
+// import { adminReducer } from "./AdminRedux/admin.reducer";
+
+// let rootReducer = combineReducers({
+//   authManager: adminReducer,
+// });
+
+// export let store = legacy_createStore(rootReducer);
+
+=======
+>>>>>>> e289e2bfdce2d1505ecd5760b078d24fab039c34

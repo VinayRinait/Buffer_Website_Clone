@@ -2,18 +2,15 @@ import React from 'react'
 import { Box ,Button} from "@chakra-ui/react"
 // import { Link } from 'react-router-dom'
 import Content from '../components/content/content'
-
-
+import { Calender } from "../components/Calender/Calender"
+import Year from "../components/Calender/Year"
 const Publishing = () => {
   return (
     <>
       <Box
-    width={{
-      lg: "100%", // 0-48em
-      md: '50%', // 48em-80em,
-      xl: '25%', // 80em+
-    }}
+    width={{lg:"100%",md:"75%",sm:"50%" }}
     display="flex"
+    fontSize="15px"
     gap={6}
     border="1px solid black"
   >
@@ -45,11 +42,12 @@ const Publishing = () => {
           <Box  mt={290} >
           <Button colorScheme="white" color="black" border="1px solid black" p={5}>Manage Channels</Button>
           </Box>
-         
+        
         </Box>
         {/* Second Container */}
-          <Content />
-          
+        {/* <Content /> */}
+        {/* <Box><Year /></Box> */}
+          <Calender />
         </Box>
 
 

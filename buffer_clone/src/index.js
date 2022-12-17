@@ -5,21 +5,22 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
-import { StyledEngineProvider, CssVarsProvider } from '@mui/joy/styles';
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import { BrowserRouter } from "react-router-dom";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store}>
-    <ChakraProvider>
-      <BrowserRouter>
+  <ChakraProvider>
+    <BrowserRouter>
+      <Provider store={store}>
         <App />
-      </BrowserRouter>
-    </ChakraProvider>
-  </Provider>
+      </Provider>
+    </BrowserRouter>
+  </ChakraProvider>
+
+
 );
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(
