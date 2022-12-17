@@ -3,7 +3,7 @@ import {
   ADMIN_AUTH_SIGN_IN_LOADING,
   ADMIN_AUTH_SIGN_IN_SUCCESS,
   ADMIN_AUTH_SIGN_OUT,
-} from "../AdminRedux/admin.actiontypes";
+} from "./admin.actiontypes";
 
 let token = localStorage.getItem("token") || "";
 
