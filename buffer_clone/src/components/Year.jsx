@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Grid, Heading, Image, Link, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, Heading, Image, Link, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
 export const Year = () => {
@@ -86,14 +86,14 @@ Visit our help center
     </Grid>
 
 
-    <Box
+    <SimpleGrid 
         backgroundColor={"blue"}
         height={{lg:"400px",md:"300px",sm:"200px",base:"none"}}
         // border={"1px solid red"}
         mt={{lg:"80px",md:"40px",sm:"20px"}}
         display="flex"
         justifyContent={"space-between"}
-        
+        width={{lg:"auto",md:"auto",sm:"auto",base:"none"}}
       >
         <Box display={{lg:"grid",md:"none",sm:"none",base:"none"}}>
           <Image
@@ -116,10 +116,10 @@ Visit our help center
 
 <Box width={{lg:"400px",md:"300px",sm:"250px",base:"none"}} mt={{lg:"100px",md:"50px",sm:"30px",base:"none"}}>
 
-<Heading as='h3' size='lg' color={"white"} textAlign="initial" >
+<Heading as='h3' color={"white"} textAlign="initial" size={{lg:'lg',sm:'sm',md:'md'}}>
 140,000+ people like you use Buffer to build their brand on social media every month
   </Heading>
-<Button size='lg' mt='10' colorScheme='pink' p={10} alignContent="center">
+<Button width={{lg:"300px",md:"200px",sm:"190px",base:"sm"}} mt='10' colorScheme='pink' p={10} alignContent="center">
 Get started now
 </Button>
 
@@ -149,7 +149,7 @@ Get started now
 
 </Box>
 
-      </Box>
+      </SimpleGrid>
 
 </>
   )
