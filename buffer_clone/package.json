@@ -8,6 +8,7 @@
     "@chakra-ui/react": "^2.4.3",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@motionone/utils": "^10.15.1",
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -22,6 +23,10 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.2",
+<<<<<<< HEAD
+=======
+    "styled-components": "^5.3.6",
+>>>>>>> a7fd4489a1e59db3ffb9ce730d3d0a6b19006b72
     "web-vitals": "^2.1.4"
   },
   "scripts": {

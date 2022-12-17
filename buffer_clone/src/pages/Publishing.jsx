@@ -1,21 +1,20 @@
 import React from 'react'
-import { Box } from "@chakra-ui/react"
-import { Link } from 'react-router-dom'
-import Contentbox from '../components/content/contentbox'
-
+import { Box ,Button} from "@chakra-ui/react"
+// import { Link } from 'react-router-dom'
+import Content from '../components/content/content'
+import { Calender } from "../components/Calender/Calender"
+import Year from "../components/Calender/Year"
 const Publishing = () => {
   return (
     <>
       <Box
-    width={{
-      lg: "100%", // 0-48em
-      md: '50%', // 48em-80em,
-      xl: '25%', // 80em+
-    }}
+    width={{lg:"100%",md:"75%",sm:"50%" }}
     display="flex"
-    gap={20}
+    fontSize="15px"
+    gap={6}
     border="1px solid black"
   >
+         {/* first Container */}
         <Box border="1px solid lightgrey" fontSize={15} font-family="Roboto ,sansrif" width="20%" height={500} justifyItems="center" p={3} fontWeight={600} >
           <Box display="flex" gap='2'  borderRadius={5} padding="2"_hover={{
           background: "lightblue",
@@ -37,34 +36,19 @@ const Publishing = () => {
           }}>
           <img width={20} src="https://img.icons8.com/material-sharp/512/graph.png" alt="content" />
           <h1 width="100%">Campaigns</h1>
+          
           </Box>
+          <hr style={{border:"1px solid lightgrey", marginTop:"10px"}}></hr>
+          <Box  mt={290} >
+          <Button colorScheme="white" color="black" border="1px solid black" p={5}>Manage Channels</Button>
+          </Box>
+        
         </Box>
         {/* Second Container */}
-        <Box mt={5} border="1px solid black" width="70%" >
-          <Box>
-                <Box>
-                    <h1>Content</h1>
-                </Box>
-                <Box>
-                    
-
-                </Box>
-          </Box>
-         
-
-
-
-          <Box mt={5} display="flex">
-          <Contentbox/>
-          </Box>
-          
+        {/* <Content /> */}
+        {/* <Box><Year /></Box> */}
+          <Calender />
         </Box>
-
-
-
-
-
-  </Box>
 
 
     </>
