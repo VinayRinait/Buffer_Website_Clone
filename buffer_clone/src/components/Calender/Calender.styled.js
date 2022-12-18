@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width:80%;
-  height: 99vh;
+ 
+  height: 88vh;
 `;
 
 export const StyledEvent = styled.span`
@@ -20,7 +20,7 @@ export const StyledEvent = styled.span`
 export const SevenColGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  ${(props) => props.fullheight && `height: calc(100% - 75px);`}
+  ${(props) => props.fullheight && `height: calc(100% - 65px);`}
   ${(props) =>
     props.fullheight &&
     `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}

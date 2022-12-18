@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Grid, Heading, Image, Link, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
-export const Year = () => {
+ const Year = () => {
 
 const obj=[
     {
@@ -154,3 +154,4 @@ Get started now
 </>
   )
 }
+export default Year

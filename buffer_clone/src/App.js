@@ -1,18 +1,19 @@
+
 import React from "react";
+
 
 
 import "./App.css";
 import Publishing from "./pages/Publishing"
-import "./App.css";
 
-import Navbar2 from "./components/Navbar2";
+
 function App() {
   return (
     
     <>
     <div>
-      <Navbar2/>
-      <Publishing/>
+     <Publishing/>
+    
     </div>
     
      
@@ -21,5 +22,19 @@ function App() {
 
   );
 }
+
+// import Admin from "./components/Admin/Admin";
+// import AddPost from "./components/Calender/AddPost";
+// import Instagram from "./pages/Instagram";
+// const App = () => {
+//   return (
+//     <div>
+//       {/* <Admin /> */}
+//       {/* <Instagram /> */}
+//       <AddPost />
+//     </div>
+//   );
+// };
+
 
 export default App;
