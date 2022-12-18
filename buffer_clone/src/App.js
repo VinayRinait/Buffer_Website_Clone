@@ -5,9 +5,9 @@ import Instagram from "./pages/Instagram";
 const App = () => {
   return (
     <div>
-      {/* <Admin /> */}
+      <Admin />
       {/* <Instagram /> */}
-      <AddPost />
+      {/* <AddPost /> */}
     </div>
   );
 };
