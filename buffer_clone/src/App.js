@@ -8,10 +8,10 @@ const App = () => {
   return (
     <div>
       {/* <Admin /> */}
-      {/* <Instagram /> */}
+      <Instagram />
 
       {/* <Analytic /> */}
-      <Analytic />
+      {/* <Analytic /> */}
       {/* <Publishing /> */}
     </div>
   );

@@ -12,7 +12,7 @@ import {
 export let getUser = () => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
-    let response = await axios.get("https://estfiq.sse.codesandbox.io/userdata");
+    let response = await axios.get("https://mp0i41.sse.codesandbox.io/users");
     dispatch({ type: USER_SUCCESS, payload: response.data });
   } catch (e) {
     dispatch({ type: USER_ERROR, payload: e.message });
@@ -24,7 +24,7 @@ export let addUser = (message) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
     let response = await axios.post(
-      `https://estfiq.sse.codesandbox.io/userdata/`,
+      `https://mp0i41.sse.codesandbox.io/users/`,
       message
     );
     dispatch({ type: ADD_USER, payload: response.data });
@@ -38,7 +38,7 @@ export let updateUser = (id, changes) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
     let response = await axios.patch(
-      `https://estfiq.sse.codesandbox.io/userdata/${id}`,
+      `https://mp0i41.sse.codesandbox.io/users/${id}`,
       { ...changes }
     );
     dispatch({ type: UPDATE_USER, payload: response.data });
@@ -53,7 +53,7 @@ export let removeUser = (id) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
     let response = await axios.delete(
-      `https://estfiq.sse.codesandbox.io/userdata/${id}`
+      `https://mp0i41.sse.codesandbox.io/users/${id}`
     );
     dispatch({ type: REMOVE_USER, payload: id });
   } catch (e) {
