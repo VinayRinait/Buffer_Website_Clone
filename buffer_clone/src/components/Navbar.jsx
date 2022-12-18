@@ -31,12 +31,27 @@ import GoogleIcon from "@mui/icons-material/Google";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import Logo from "./Image/hub.png";
+import Logo from "../images/logo.png";
 import { Link, NavLink } from 'react-router-dom';
 
+let Links = [
+  {
+    title: "Home Page",
+    to: "/"
+  },
 
+  {
+    title: "Login",
+    to: "/login"
+  },
+  {
+    title: "Admin Page",
+    to: "/admin"
+  }
+]
 export function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+
 
   return (
     <Box>
@@ -64,7 +79,13 @@ export function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Image marginLeft={10} boxSize="120px"  borderRadius={"80px"} width={"10%"} src={Logo} alt='logo' />
+          <Link to="/homepage" >
+            <Image marginLeft={10} boxSize="110px" borderRadius={"80px"} width={{ sm: "10%", md:"30%", lg: "55%" }} src={Logo} alt='logo' />
+
+          </Link>
+
+
+
 
 
 
@@ -79,12 +100,12 @@ export function Navbar() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Box fontSize={25} color="blue" margin-top={20} >
+          <Box fontSize={20} color="blue" margin-top={20} >
             <Link to={"/login"} >Login</Link>
           </Box>
-          <Box fontSize={25} color="blue" margin-top={20}>
-<Link to={"/adminlogin"} >Admin</Link>
-</Box>
+          <Box fontSize={20} color="blue" margin-top={20}>
+            <Link to={"/dash/Admin/*"} >Admin</Link>
+          </Box>
           <Button
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={20}
@@ -120,7 +141,7 @@ const DesktopNav = () => {
           <Popover trigger={'hover'} placement={'bottom-start'} >
             <PopoverTrigger >
 
-              <NavLink style={{ fontSize: "25px", marginLeft: "100px" }} to={navItem.href}>{navItem.label} {navItem.pal}</NavLink>
+              <NavLink style={{ fontSize: "20px", marginLeft: "100px" }} to={navItem.href}>{navItem.label} {navItem.pal}</NavLink>
 
 
             </PopoverTrigger>
@@ -239,10 +260,10 @@ const MobileNavItem = ({ label, children, href }) => {
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.700')}
           align={'start'}>
-          {children &&
-            children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
+          {
+            Links.map((child) => (
+              <Link key={child.title} py={2} href={child.to}>
+                {child.title}
               </Link>
             ))}
         </Stack>
