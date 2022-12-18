@@ -1,6 +1,7 @@
 
 import { useRef, useState } from "react";
 import AddPost from "./AddPost";
+
 import {
   SevenColGrid,
   Wrapper,
@@ -29,7 +30,7 @@ export const Calender = () => {
 
   const addEvent = (date, event) => {
     if (!event.target.classList.contains("StyledEvent")) {
-      const text = window.prompt("name");
+      const text = window.prompt("Name of the Project");
       if (text) {
         date.setHours(0);
         date.setSeconds(0);
@@ -78,8 +79,8 @@ export const Calender = () => {
         ></ion-icon>
 
 
-
-         <AddPost/>
+<AddPost/>
+        
 
 
 
