@@ -1,12 +1,13 @@
 import React from "react";
 import Admin from "./components/Admin/Admin";
-import AllRoute from "./components/AllRoutes/AllRoute";
 import AddPost from "./components/Calender/AddPost";
-
+import Instagram from "./pages/Instagram";
 const App = () => {
   return (
     <div>
-      <Admin />
+      {/* <Admin /> */}
+      {/* <Instagram /> */}
+      <AddPost />
     </div>
   );
 };
