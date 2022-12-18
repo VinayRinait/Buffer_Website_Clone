@@ -1,7 +1,7 @@
 // import { Box, Input } from "@chakra-ui/react";
-import { Box, Button, Container, Heading, Input } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, Input, Flex } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-
+import { FcSearch } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addUser,
@@ -17,7 +17,8 @@ let initialUsers = {
 
 const AdminUserPage = () => {
   let [data, setData] = useState(initialUsers);
-
+  let [search, setSearch] = useState("");
+  let [page, setPage] = useState(1);
   let { users } = useSelector((store) => store.userManager);
   let totalUsers = users.length;
 
@@ -40,19 +41,20 @@ const AdminUserPage = () => {
   };
 
   useEffect(() => {
-    dispatch(getUser());
-  }, []);
+    dispatch(getUser(page));
+  }, [page]);
 
   let { avatar, name, id } = data;
   return (
     <div>
       <br />
       <br />
-      <Container>
+      <Container margin="auto">
         <Heading color={"teal"}>Add User</Heading>
         <br />
         <br />
         <Box
+          w={["90vw", "90vw", "90vw", "90vw"]}
           maxW="sm"
           borderWidth="1px"
           borderRadius="lg"
@@ -111,45 +113,101 @@ const AdminUserPage = () => {
         <br />
         <br />
         {/* \\\\\\\\\\\\\\\\\---------------All Users----------------///////////////// */}
-        {users.map((el) => (
-          <Box
-            key={el.id}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4,1fr)",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            maxW="sm"
-            borderWidth="1px"
-            borderRadius="lg"
-            overflow="hidden"
-            p="5"
-            boxShadow="xl"
-            borderColor={"teal"}
+        <Box w={["90vw", "90vw", "90vw", "90vw"]}>
+          <Flex gap={1}>
+            <Box>
+              {" "}
+              <Heading as="h4" size="md">
+                Search
+              </Heading>
+            </Box>
+
+            <Box>
+              <FcSearch />
+            </Box>
+          </Flex>
+
+          <Input
+            focusBorderColor="teal.400"
+            width={["290px", "385px", "385px", "385px"]}
+            type="text"
+            placeholder="Search....."
+            onChange={(e) => setSearch(e.target.value)}
+            borderColor="teal"
+            marginTop="20px"
+            marginBottom="20px"
+          ></Input>
+        </Box>
+        {users
+          .filter((el) => {
+            if (search === "") {
+              return el;
+            } else if (
+              el.name.toLowerCase().includes(search.toLocaleLowerCase())
+            ) {
+              return el;
+            }
+          })
+          .map((el) => (
+            <Box
+              w={["90vw", "90vw", "90vw", "90vw"]}
+              key={el.id}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4,1fr)",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              maxW="sm"
+              borderWidth="1px"
+              borderRadius="lg"
+              overflow="hidden"
+              p="5"
+              boxShadow="xl"
+              borderColor={"teal"}
+            >
+              <Box>{el.id}</Box>
+              <Box>
+                <img
+                  src={el.avatar}
+                  alt={el.name}
+                  style={{ width: "60px", height: "60px", borderRadius: "50%" }}
+                />
+              </Box>
+              <Box>
+                <h4>{el.name}</h4>
+              </Box>
+              <Box>
+                <Button
+                  bgColor={"red.300"}
+                  size="xs"
+                  onClick={() => handleDelete(el.id)}
+                >
+                  REMOVE USER
+                </Button>
+              </Box>
+            </Box>
+          ))}
+
+        <Box marginTop="20px" marginLeft="100px" marginBottom="40px">
+          <Button
+            size="sm"
+            colorScheme="teal"
+            disabled={page <= 1}
+            onClick={() => setPage(page - 1)}
           >
-            <Box>{el.id}</Box>
-            <Box>
-              <img
-                src={el.avatar}
-                alt={el.name}
-                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
-              />
-            </Box>
-            <Box>
-              <h4>{el.name}</h4>
-            </Box>
-            <Box>
-              <Button
-                bgColor={"red.300"}
-                size="xs"
-                onClick={() => handleDelete(el.id)}
-              >
-                REMOVE USER
-              </Button>
-            </Box>
-          </Box>
-        ))}
+            Prev
+          </Button>
+          <Button size="sm">{page}</Button>
+          <Button
+            size="sm"
+            colorScheme="teal"
+            disabled={page >= totalUsers}
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </Button>
+        </Box>
       </Container>
     </div>
   );

@@ -27,7 +27,7 @@ const Admin = () => {
             </RequiredAuth>
           }
         />
-        <Route path="/login" element={<AdminLogin />} />
+        <Route path="/admin/login/*" element={<AdminLogin />} />
       </Routes>
     </div>
   );
