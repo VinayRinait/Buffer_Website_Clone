@@ -8,7 +8,7 @@ const RequiredAuth = ({ children }) => {
   if (isAuth) {
     return children;
   } else {
-    return <Navigate to="/login" state={{ from: pathname }} replace />;
+    return <Navigate to="/admin/login/*" state={{ from: pathname }} replace />;
   }
 };
 
