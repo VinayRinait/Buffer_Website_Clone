@@ -1,9 +1,6 @@
-import React from 'react'
-
+import React from "react";
 const AllRoute = () => {
-  return (
-    <div>AllRoute</div>
-  )
-}
+  return <></>;
+};
 
-export default AllRoute
+export default AllRoute;
