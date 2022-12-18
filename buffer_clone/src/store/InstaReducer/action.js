@@ -8,9 +8,10 @@ import {
 export const ADD_DATA = (newdata) => async (dispatch) => {
   dispatch({ type: INSTA_DATA_LOADING });
   try {
-    let res = await axios.post(`https://social-hub-orcin.vercel.app/intagram`, {
+    let res = await axios.post(`https://9oze9f.sse.codesandbox.io/instagram`, {
       ...newdata,
     });
+
     dispatch({ type: INSTA_DATA_SUCCESS, paylode: res.data });
   } catch (error) {
     dispatch({ type: INSTA_DATA_ERROR });

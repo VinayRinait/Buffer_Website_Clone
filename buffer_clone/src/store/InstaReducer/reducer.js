@@ -6,7 +6,7 @@ import {
 
 let InitialData = {
   cart: [],
-  // loading: false,
+  loading: false,
   error: false,
 };
 
