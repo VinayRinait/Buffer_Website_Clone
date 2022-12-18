@@ -73,27 +73,22 @@ export const Year = () => {
           </Heading>
         </Box>
         <Box display={"flex"} justifyContent={"center"} marginTop={"20px"} >
-          <Box display={{ sm: "grid", md: "grid", lg: "flex" }} justifyContent={"space-around"} width={"600px"} gap={10}>
-            <Image boxSize={"60px"} width={"150px"} src='https://buffer.com/static/ui/meta-business-partner@2x-2.png'></Image>
-            <Image boxSize={"60px"} width={"150px"} src='https://buffer.com/static/ui/pinterest-marketing-partner@2x-2.png'></Image>
-            <Image boxSize={"60px"} width={"150px"} src='https://buffer.com/static/ui/linkedin-marketing-partner@2x-2.png'></Image>
-
-
-          </Box>
-
+    <Box display={{sm:"grid",md:"grid",lg:"flex"}} justifyContent={"space-around"} width={"600px"} gap={10}>
+        <Image boxSize={"60px"} width={"150px"} src='https://buffer.com/static/ui/meta-business-partner@2x-2.png'></Image>
+        <Image boxSize={"60px"} width={"150px"} src='https://buffer.com/static/ui/pinterest-marketing-partner@2x-2.png'></Image>
+        <Image boxSize={"60px"} width={"150px"} src='https://buffer.com/static/ui/linkedin-marketing-partner@2x-2.png'></Image>
         </Box>
-
-      </Grid>
-
-
-      <SimpleGrid
+    </Box>
+    </Grid>
+    <SimpleGrid 
         backgroundColor={"blue"}
         height={{ lg: "400px", md: "300px", sm: "200px", base: "none" }}
         // border={"1px solid red"}
         mt={{ lg: "80px", md: "40px", sm: "20px" }}
         display="flex"
-        justifyContent={"space-between"}
-        width={{ lg: "auto", md: "auto", sm: "auto", base: "none" }}
+        justifyContent='center'
+        width={{lg:"auto",md:"auto",sm:"auto",base:"none"}}
+        
       >
         <Box display={{ lg: "grid", md: "none", sm: "none", base: "none" }}>
           <Image
@@ -113,23 +108,17 @@ export const Year = () => {
             src="https://buffer.com/static/background/circle-pink.svg"
           ></Image>
         </Box>
+<Box width={{lg:"400px",md:"300px",sm:"250px",base:"none"}} mt={{lg:"100px",md:"50px",sm:"30px",base:"none"}}  >
 
-        <Box width={{ lg: "400px", md: "300px", sm: "250px", base: "none" }} mt={{ lg: "100px", md: "50px", sm: "30px", base: "none" }}>
-
-          <Heading as='h3' color={"white"} textAlign="initial" size={{ lg: 'lg', sm: 'sm', md: 'md' }}>
-            140,000+ people like you use Buffer to build their brand on social media every month
-          </Heading>
-          <Button width={{ lg: "300px", md: "200px", sm: "190px", base: "sm" }} mt='10' colorScheme='pink' p={10} alignContent="center">
-            Get started now
-          </Button>
-
-
-
-        </Box>
-
-
-        <Box display={{ lg: "grid", md: "none", sm: "none", base: "none" }}>
-          <Image
+<Heading as='h3' color={"white"} textAlign="initial" size={{lg:'lg',sm:'sm',md:'md'}}>
+140,000+ people like you use Buffer to build their brand on social media every month
+  </Heading>
+<Button width={{lg:"300px",md:"200px",sm:"190px",base:"sm"}} mt='10' colorScheme='pink' p={10} alignContent="center">
+Get started now
+</Button>
+</Box>
+<Box display={{lg:"grid",md:"none",sm:"none",base:"none"}}>
+<Image
             boxSize={10}
             mr={"40"}
             mt="10"
@@ -146,9 +135,7 @@ export const Year = () => {
             mt="20"
             src="https://buffer.com/static/background/triangle-yellow.svg"
           ></Image>
-
-        </Box>
-
+</Box>
       </SimpleGrid>
 
     </>

@@ -1,22 +1,11 @@
-import React from "react";
-import AllRoute from "./components/AllRoutes/AllRoute"
-import { Navbar } from "./components/Navbar";
-
-
-
-import "./App.css";
-
-function App() {
+import React from 'react'
+import HomePage from './pages/HomePage'
+const App = () => {
   return (
     <div>
-      <Navbar />
-      <AllRoute />
-      
-      <Admin />
-      {/* <Instagram /> */}
-      {/* <AddPost /> */}
+        <HomePage/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
