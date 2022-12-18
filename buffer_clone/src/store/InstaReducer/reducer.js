@@ -1,39 +1,51 @@
 import {
-  INSTA_DATA_ERROR,
-  INSTA_DATA_LOADING,
-  INSTA_DATA_SUCCESS,
+  ADD_USER,
+  UPDATE_USER,
+  REMOVE_USER,
+  USER_LOADING,
+  USER_SUCCESS,
+  USER_ERROR,
 } from "./actionType";
 
-let InitialData = {
-  cart: [],
+let initialstate = {
   loading: false,
   error: false,
+  cart: [],
 };
 
-export const Cart_Reducer = (state = InitialData, { type, payload }) => {
+export let CartReducer = (state = initialstate, { type, payload }) => {
   switch (type) {
-    case INSTA_DATA_LOADING: {
+    case ADD_USER: {
+      return {
+        ...state,
+        loading: false,
+        cart: [...state.cart, payload],
+      };
+    }
+
+    case USER_LOADING: {
       return {
         ...state,
         loading: true,
         error: false,
       };
     }
-    case INSTA_DATA_ERROR: {
-      return {
-        ...state,
-        loading: false,
-        error: true,
-      };
-    }
-    case INSTA_DATA_SUCCESS: {
+    case USER_SUCCESS: {
       return {
         ...state,
         loading: false,
         error: false,
-        cart: [...state.cart, payload],
+        cart: payload,
       };
     }
+    case USER_ERROR: {
+      return {
+        ...state,
+        loading: false,
+        error: payload || true,
+      };
+    }
+
     default: {
       return state;
     }

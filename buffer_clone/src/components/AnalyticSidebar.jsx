@@ -108,10 +108,10 @@ const ContentMiddle = () => {
           pt={2}
         >
           <Heading fontSize={"2xl"} fontFamily={"body"}>
-            Lindsey James
+            Priyanshu Kumar
           </Heading>
           <Text fontWeight={600} color={"gray.500"} size="sm" mb={4}>
-            @lindsey_jam3s
+            @Priyanshu
           </Text>
           <Text
             textAlign={"center"}
@@ -131,7 +131,7 @@ const ContentMiddle = () => {
               bg={useColorModeValue("gray.50", "gray.800")}
               fontWeight={"400"}
             >
-              #art
+              #INSTAGRAM
             </Badge>
             <Badge
               px={2}
@@ -139,7 +139,7 @@ const ContentMiddle = () => {
               bg={useColorModeValue("gray.50", "gray.800")}
               fontWeight={"400"}
             >
-              #photography
+              #FACEBOOK
             </Badge>
             <Badge
               px={2}
@@ -167,7 +167,7 @@ const ContentMiddle = () => {
                 bg: "gray.200",
               }}
             >
-              Message
+              FACEBOOK POST - 5
             </Button>
             <Button
               flex={1}
@@ -185,7 +185,7 @@ const ContentMiddle = () => {
                 bg: "blue.500",
               }}
             >
-              Follow
+              INSTAGRAM POST -
             </Button>
           </Stack>
         </Stack>

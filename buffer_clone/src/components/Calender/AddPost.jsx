@@ -15,7 +15,7 @@ import {
 
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { ADD_DATA } from "../../store/InstaReducer/action";
+import { addUserinsta } from "../../store/InstaReducer/action";
 
 const AddPost = () => {
   const dispatch = useDispatch();
@@ -28,11 +28,11 @@ const AddPost = () => {
   const [src, setSrc] = useState("");
 
   const handleClick = () => {
-    dispatch(ADD_DATA({ input, type, gender, price, src }));
+    dispatch(addUserinsta({ input, type, gender, price, src }));
     alert("sucess");
   };
 
-  let store = useSelector((el) => console.log(el.data));
+  let store = useSelector((el) => console.log(el));
 
   return (
     <>
