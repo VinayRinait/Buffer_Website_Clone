@@ -12,7 +12,7 @@ const Publishing = () => {
     display="flex"
     fontSize="15px"
     gap={6}
-    border="1px solid black"
+    
   >
          {/* first Container */}
         <Box border="1px solid lightgrey" fontSize={15} font-family="Roboto ,sansrif" width="20%" height={500} justifyItems="center" p={3} fontWeight={600} >

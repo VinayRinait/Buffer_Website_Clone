@@ -26,7 +26,7 @@ const AddPost = () => {
 
   const handleClick = () => {
     axios
-      .post(`http://localhost:3000/comments`, {
+      .post(`https://social-hub-orcin.vercel.app/intagram`, {
         title: input,
         category: type,
         gender: gender,
@@ -111,19 +111,19 @@ const AddPost = () => {
               value={src}
             />
 
-            {/* <Button
+            <Button
            
               colorScheme="blue"
               mr={3}
               onClick={handleClick}
             >
               Create
-            </Button> */}
-            <Select  my={4}  bg={"blue"} color={"white"} width="160px" onClick={onOpen} >
+            </Button>
+            {/* <Select  my={4}  bg={"blue"} color={"white"} width="160px" onClick={onOpen} >
               <option  color={"white"} onClick={handleClick} bg={"blue"}  value='Instagram Post'>Instagram Post</option>
               <option  bg={"blue"} color={"white"} onClick={handleClick}  value='Facebook Post'>Facebook Post </option>
               <option  bg={"blue"} color={"white"} onClick={handleClick}   value='Twitter Post'>Twitter Post</option>
-            </Select> 
+            </Select>  */}
             <Button onClick={onClose}>close</Button>
           </ModalBody>
         </ModalContent>

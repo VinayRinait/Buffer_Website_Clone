@@ -12,8 +12,8 @@ import styles from "./navbar.module.css"
 const Navbar2 = () => {
   return (
     <>
-        <Box className={styles.Navbar2} p={2} border="1px solid black"  fontSize="12px"  width="98%"  height="70px" alignItems="center" display="flex" justifyContent="space-between">
-            <Box display="flex" gap={4} alignItems="center" >
+        <Box width={{lg:"100%", sm:"70%" , md:"600px"}}   fontSize="12px" height="70px" alignItems="center" display="flex" justifyContent="space-between" borderBottomStyle="1px solid black">
+            <Box display="flex" gap={4} alignItems="center" fontSize="15px">
                 <img width="100px" height="80px" src={Socialhub} alt="socialhub" />
                 <Box _hover={{ boxShadow: "inset 0 -5px 0 0 blue" ,backgroundColor:"rgb(245, 245, 245)",color:"blue"}} p={5} fontSize="18px"><a href="/">Publishing</a></Box>
                 <Box _hover={{ boxShadow: "inset 0 -5px 0 0 blue" ,backgroundColor:"rgb(245, 245, 245)",color:"blue"}} p={5} fontSize="18px"><a href="/">Analytics</a></Box>
