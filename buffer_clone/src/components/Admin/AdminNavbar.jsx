@@ -15,10 +15,11 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Heading,
 } from "@chakra-ui/react";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
-
+import socialhub from "../Image/hub.png";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/AllAdminRedux/AdminRedux/admin.actions";
@@ -44,7 +45,7 @@ const NavLink = ({ children }) => (
 
 export default function AdminNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  let { isAuth } = useSelector((store) => store.authManager);
+  let { isAuth, token } = useSelector((store) => store.authManager);
   let dispatch = useDispatch();
   let navigate = useNavigate();
   // console.log(isAuth);
@@ -52,7 +53,7 @@ export default function AdminNavbar() {
     if (isAuth) {
       dispatch(logout());
     } else {
-      navigate("/login");
+      navigate("/");
     }
   };
   return (
@@ -67,7 +68,13 @@ export default function AdminNavbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box><img src="" alt="" /></Box>
+            <Box>
+              <img
+                src={socialhub}
+                alt="socialhub"
+                style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+              />
+            </Box>
             <HStack
               as={"nav"}
               spacing={4}
@@ -83,6 +90,11 @@ export default function AdminNavbar() {
                 {isAuth ? "Logout" : "Login"}
               </Button>
             </HStack>
+            <Box>
+              <Heading color={"red"} as="h6" size="xs">
+                {isAuth ? `Token Id :- ${token}` : ""}
+              </Heading>
+            </Box>
           </HStack>
           <Flex alignItems={"center"}>
             <Menu>

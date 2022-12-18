@@ -18,7 +18,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
-
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
