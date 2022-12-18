@@ -12,6 +12,9 @@ function App() {
       <Navbar />
       <AllRoute />
       
+      <Admin />
+      {/* <Instagram /> */}
+      {/* <AddPost /> */}
     </div>
   );
 }

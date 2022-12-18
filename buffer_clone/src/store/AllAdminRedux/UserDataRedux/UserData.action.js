@@ -9,10 +9,10 @@ import {
 } from "./UserData.actiontypes";
 
 //getUser
-export let getUser = () => async (dispatch) => {
+export let getUser = (page) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
-    let response = await axios.get("https://mp0i41.sse.codesandbox.io/users");
+    let response = await axios.get(`https://mp0i41.sse.codesandbox.io/users?_page=${page}&_limit=3`);
     dispatch({ type: USER_SUCCESS, payload: response.data });
   } catch (e) {
     dispatch({ type: USER_ERROR, payload: e.message });

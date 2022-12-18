@@ -14,9 +14,6 @@ let rootReducer = combineReducers({
   authManager: adminReducer,
   userManager: userReducer,
   channelManager: channelReducer,
-  data: dataReducer,
-  cart: Cart_Reducer,
-  cartManager: CartReducer,
 });
 let composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
 
