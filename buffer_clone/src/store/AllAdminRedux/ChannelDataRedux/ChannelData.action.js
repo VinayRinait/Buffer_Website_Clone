@@ -13,7 +13,7 @@ export let getChannel = () => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.get(
-      "https://estfiq.sse.codesandbox.io/channeldata"
+      "https://mp0i41.sse.codesandbox.io/channels"
     );
     dispatch({ type: CHANNEL_SUCCESS, payload: response.data });
   } catch (e) {
@@ -26,7 +26,7 @@ export let addChannel = (message) => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.post(
-      `https://estfiq.sse.codesandbox.io/channeldata`,
+      `https://mp0i41.sse.codesandbox.io/channels/`,
       message
     );
     dispatch({ type: ADD_CHANNEL, payload: response.data });
@@ -40,7 +40,7 @@ export let updateChannel = (id, changes) => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.patch(
-      `https://estfiq.sse.codesandbox.io/channeldata/${id}`,
+      `https://mp0i41.sse.codesandbox.io/channels/${id}`,
       { ...changes }
     );
     dispatch({ type: UPDATE_CHANNEL, payload: response.data });
@@ -55,7 +55,7 @@ export let removeChannel = (id) => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.delete(
-      `https://estfiq.sse.codesandbox.io/channeldata/${id}`
+      `https://mp0i41.sse.codesandbox.io/channels/${id}`
     );
     dispatch({ type: REMOVE_CHANNEL, payload: id });
   } catch (e) {
