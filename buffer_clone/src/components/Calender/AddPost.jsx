@@ -14,8 +14,11 @@ import {
 } from "@chakra-ui/react";
 
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { addUserinsta } from "../../store/InstaReducer/action";
 
 const AddPost = () => {
+  const dispatch = useDispatch();
   // TODO: Remove below const and instead import them from chakra
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [input, setInput] = useState("");
@@ -25,22 +28,11 @@ const AddPost = () => {
   const [src, setSrc] = useState("");
 
   const handleClick = () => {
-    axios
-      .post(`https://social-hub-orcin.vercel.app/intagram`, {
-        title: input,
-        category: type,
-        gender: gender,
-        price: price,
-        url: src,
-      })
-      .then((res) => {
-        console.log(res);
-        alert("POST SUCCESSFULLY");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(addUserinsta({ input, type, gender, price, src }));
+    alert("sucess");
   };
+
+  let store = useSelector((el) => console.log(el));
 
   return (
     <>
@@ -110,14 +102,26 @@ const AddPost = () => {
               value={src}
             />
 
+            <Select
+              my={4}
+              bg={"blue"}
+              color={"white"}
+              width="160px"
+              onChange={(e) => setType(e.target.value)}
+            >
+              <option bg={"blue"} value="Instagram Post">
+                Instagram Post
+              </option>
+              <option bg={"blue"} value="Facebook Post">
+                Facebook Post{" "}
+              </option>
+              <option bg={"blue"} value="Twitter Post">
+                Twitter Post
+              </option>
+            </Select>
             <Button colorScheme="blue" mr={3} onClick={handleClick}>
               Create
             </Button>
-            {/* <Select  my={4}  bg={"blue"} color={"white"} width="160px" onClick={onOpen} >
-              <option  color={"white"} onClick={handleClick} bg={"blue"}  value='Instagram Post'>Instagram Post</option>
-              <option  bg={"blue"} color={"white"} onClick={handleClick}  value='Facebook Post'>Facebook Post </option>
-              <option  bg={"blue"} color={"white"} onClick={handleClick}   value='Twitter Post'>Twitter Post</option>
-            </Select>  */}
             <Button onClick={onClose}>close</Button>
           </ModalBody>
         </ModalContent>

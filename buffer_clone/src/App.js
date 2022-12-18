@@ -1,4 +1,6 @@
 import Admin from "./components/Admin/Admin";
+import AllRoute from "./components/AllRoutes/AllRoute";
+
 import AddPost from "./components/Calender/AddPost";
 import Analytic from "./pages/Analytic";
 import Instagram from "./pages/Instagram";
@@ -8,15 +10,17 @@ const App = () => {
     <>
       <div>
         {/* <Admin /> */}
-        <Instagram />
+        {/* <Instagram /> */}
 
         {/* <Analytic /> */}
         {/* <Analytic /> */}
         {/* <Publishing /> */}
+        <AllRoute />
       </div>
     </>
   );
 };
+export default App;
 
 // import Admin from "./components/Admin/Admin";
 // import AddPost from "./components/Calender/AddPost";
