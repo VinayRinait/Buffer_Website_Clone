@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { Box, Button } from "@chakra-ui/react";
 // import { Link } from 'react-router-dom'
@@ -100,5 +101,35 @@ const Publishing = () => {
     </>
   );
 };
+=======
+import React from 'react'
+import { Flex} from "@chakra-ui/react"
+// import { Link } from 'react-router-dom'
+import SideBar from './sidebar'
+import { Calender } from "../components/Calender/Calender"
+import Navbar2 from '../components/Navbar2'
+import Content from "../components/content/content"
+const Publishing = () => {
+  return (
+    <div>
+        
+            <div>
+            <Navbar2/>
+            </div>
+            <div>
+            <Flex display="flex">
+              <SideBar />
+              {/* <Content /> */}
+              <div style={{marginLeft:"20px"}}>
+                <Calender/>
+              </div>
+            </Flex>
+            </div>
+            
+        
+    </div>
+  )
+}
+>>>>>>> 5494e2749f139a500d6283cb325022db051f44a3
 
 export default Publishing;

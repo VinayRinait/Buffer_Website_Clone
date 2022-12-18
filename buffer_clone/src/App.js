@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import Admin from "./components/Admin/Admin";
 import AddPost from "./components/Calender/AddPost";
@@ -16,5 +17,45 @@ const App = () => {
     </div>
   );
 };
+=======
+>>>>>>> 5494e2749f139a500d6283cb325022db051f44a3
 
-export default App;
+import React from "react";
+
+
+
+import "./App.css";
+import Publishing from "./pages/Publishing"
+
+
+function App() {
+  return (
+    
+    <>
+    <div>
+     <Publishing/>
+    
+    </div>
+    
+     
+   
+    </>
+
+  );
+}
+
+// import Admin from "./components/Admin/Admin";
+// import AddPost from "./components/Calender/AddPost";
+// import Instagram from "./pages/Instagram";
+// const App = () => {
+//   return (
+//     <div>
+//       {/* <Admin /> */}
+//       {/* <Instagram /> */}
+//       <AddPost />
+//     </div>
+//   );
+// };
+
+
+export default App
