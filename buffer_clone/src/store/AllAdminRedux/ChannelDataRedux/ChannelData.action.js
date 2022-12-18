@@ -9,11 +9,11 @@ import {
 } from "./ChannelData.actiontypes";
 
 //getUser
-export let getChannel = () => async (dispatch) => {
+export let getChannel = (page) => async (dispatch) => {
   dispatch({ type: CHANNEL_LOADING });
   try {
     let response = await axios.get(
-      "https://mp0i41.sse.codesandbox.io/channels"
+      `https://mp0i41.sse.codesandbox.io/channels?_page=${page}&_limit=3`
     );
     dispatch({ type: CHANNEL_SUCCESS, payload: response.data });
   } catch (e) {

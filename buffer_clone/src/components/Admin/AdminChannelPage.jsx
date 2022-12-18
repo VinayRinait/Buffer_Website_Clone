@@ -15,7 +15,9 @@ import {
   ModalCloseButton,
   FormControl,
   FormLabel,
+  Flex,
 } from "@chakra-ui/react";
+import { FcSearch } from "react-icons/fc";
 import React, { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -34,14 +36,15 @@ let initialChannel = {
 
 const AdminChannelPage = () => {
   let [data, setData] = useState(initialChannel);
-
+  let [search, setSearch] = useState("");
+  let [page, setPage] = useState(1);
   let { channels } = useSelector((store) => store.channelManager);
   let totalChannels = channels.length;
 
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getChannel());
-  }, []);
+    dispatch(getChannel(page));
+  }, [page]);
 
   let handleDelete = (id) => {
     dispatch(removeChannel(id));
@@ -68,13 +71,12 @@ const AdminChannelPage = () => {
 
   return (
     <div>
-      <br />
-      <br />
-      <Container>
+      <Container margin="auto">
         <Heading color={"teal"}>Add Channel</Heading>
         <br />
         <br />
         <Box
+          w={["90vw", "90vw", "90vw", "90vw"]}
           maxW="sm"
           borderWidth="1px"
           borderRadius="lg"
@@ -133,91 +135,104 @@ const AdminChannelPage = () => {
         <br />
         <br />
         {/* \\\\\\\\\\\\\\\\\---------------All Channels----------------///////////////// */}
-        {channels.map((el) => (
-          <Box
-            key={el.id}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4,1fr)",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "20px",
-            }}
-            maxW="sm"
-            borderWidth="1px"
-            borderRadius="lg"
-            overflow="hidden"
-            p="5"
-            boxShadow="xl"
-            borderColor={"teal"}
-          >
-            <Box>{el.id}</Box>
+        <Box w={["90vw", "90vw", "90vw", "90vw"]}>
+          <Flex gap={1}>
             <Box>
-              <img
-                src={el.logo}
-                alt={el.name}
-                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
-              />
+              {" "}
+              <Heading as="h4" size="md">
+                Search
+              </Heading>
             </Box>
+
             <Box>
-              <h4>{el.name}</h4>
+              <FcSearch />
             </Box>
-            <Box>
-              <Button
-                bgColor={"red.300"}
-                size="xs"
-                onClick={() => handleDelete(el.id)}
-              >
-                REMOVE CHANNEL
-              </Button>
-            </Box>
-          </Box>
-        ))}
+          </Flex>
 
-        {/* //////////////////////////////////////////////////////////////////////////// */}
-
-        {/* <Button onClick={onOpen}>Add Channel</Button> */}
-        {/* <Button ml={4} ref={finalRef}>
-          I'll receive focus on close
-        </Button> */}
-
-        {/* <Modal
-          initialFocusRef={initialRef}
-          finalFocusRef={finalRef}
-          isOpen={isOpen}
-          onClose={onClose}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Create your account</ModalHeader>
-            <ModalCloseButton />
-            <form>
-              <ModalBody pb={6}>
-                <FormControl>
-                  <FormLabel>First name</FormLabel>
-                  <Input ref={initialRef} placeholder="First name" />
-                </FormControl>
-
-                <FormControl mt={4}>
-                  <FormLabel>Last name</FormLabel>
-                  <Input placeholder="Last name" />
-                </FormControl>
-                <FormControl mt={4}>
-                  <FormLabel>Last name</FormLabel>
-                  <Input placeholder="Last name" />
-                </FormControl>
-              </ModalBody>
-
-              <ModalFooter>
-                <Button colorScheme="blue" mr={3}>
-                  Add Channel
+          <Input
+            focusBorderColor="teal.400"
+            width={["290px", "385px", "385px", "385px"]}
+            type="text"
+            placeholder="Search....."
+            onChange={(e) => setSearch(e.target.value)}
+            borderColor="teal"
+            marginTop="20px"
+            marginBottom="20px"
+          ></Input>
+        </Box>
+        {channels
+          .filter((el) => {
+            if (search === "") {
+              return el;
+            } else if (
+              el.name.toLowerCase().includes(search.toLocaleLowerCase())
+            ) {
+              return el;
+            }
+          })
+          .map((el) => (
+            <Box
+              w={["90vw", "90vw", "90vw", "90vw"]}
+              key={el.id}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4,1fr)",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "20px",
+              }}
+              maxW="sm"
+              borderWidth="1px"
+              borderRadius="lg"
+              overflow="hidden"
+              p="5"
+              boxShadow="xl"
+              borderColor={"teal"}
+            >
+              <Box>{el.id}</Box>
+              <Box>
+                <img
+                  width={{ sm: "30px", md: "30px", lg: "40px" }}
+                  height={{ sm: "40px", md: "60px", lg: "80px" }}
+                  src={el.logo}
+                  alt={el.name}
+                  style={{ borderRadius: "50%" }}
+                />
+              </Box>
+              <Box>
+                <h4>{el.name}</h4>
+              </Box>
+              <Box>
+                <Button
+                  bgColor={"red.300"}
+                  size="xs"
+                  onClick={() => handleDelete(el.id)}
+                >
+                  REMOVE CHANNEL
                 </Button>
+              </Box>
+            </Box>
+          ))}
 
-                <Button onClick={onClose}>Cancel</Button>
-              </ModalFooter>
-            </form>
-          </ModalContent>
-        </Modal> */}
+        <Box marginTop="20px" marginLeft="100px" marginBottom="40px">
+          <Button
+            size="sm"
+            colorScheme="teal"
+            disabled={page <= 1}
+            onClick={() => setPage(page - 1)}
+          >
+            Prev
+          </Button>
+          <Button size="sm">{page}</Button>
+          <Button
+            size="sm"
+            colorScheme="teal"
+            disabled={page >= totalChannels}
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </Button>
+        </Box>
       </Container>
     </div>
   );
