@@ -1,19 +1,32 @@
 import axios from "axios";
 import {
-  INSTA_DATA_ERROR,
-  INSTA_DATA_LOADING,
-  INSTA_DATA_SUCCESS,
+  ADD_USER,
+  UPDATE_USER,
+  REMOVE_USER,
+  USER_LOADING,
+  USER_SUCCESS,
+  USER_ERROR,
 } from "./actionType";
 
-export const ADD_DATA = (newdata) => async (dispatch) => {
-  dispatch({ type: INSTA_DATA_LOADING });
+//getUser
+export const getUserinsta = () => async (dispatch) => {
+  dispatch({ type: USER_LOADING });
   try {
-    let res = await axios.post(`https://9oze9f.sse.codesandbox.io/instagram`, {
-      ...newdata,
-    });
-
-    dispatch({ type: INSTA_DATA_SUCCESS, paylode: res.data });
+    let response = await axios.get(
+      "https://kykx5q.sse.codesandbox.io/products"
+    );
+    dispatch({ type: USER_SUCCESS, payload: response.data });
+  } catch (e) {}
+};
+export const addUserinsta = (message) => async (dispatch) => {
+  dispatch({ type: USER_LOADING });
+  try {
+    let response = await axios.post(
+      `https://kykx5q.sse.codesandbox.io/products/`,
+      message
+    );
+    dispatch({ type: ADD_USER, payload: response.data });
   } catch (error) {
-    dispatch({ type: INSTA_DATA_ERROR });
+    dispatch({ type: USER_ERROR });
   }
 };

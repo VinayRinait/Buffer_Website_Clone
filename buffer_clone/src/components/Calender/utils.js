@@ -1,17 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { DAYS } from "./conts";
 
 export const getDaysInMonth = (date) => {

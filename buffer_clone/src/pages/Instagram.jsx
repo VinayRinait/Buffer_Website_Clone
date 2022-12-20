@@ -16,13 +16,16 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaHome, FaInbox, FaMemory, FaSmile } from "react-icons/fa";
 import { FiCompass } from "react-icons/fi";
 import { FiHeart } from "react-icons/fi";
 import { FiMessageCircle } from "react-icons/fi";
 import { FiHome } from "react-icons/fi";
 import { FiSend } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../store/AllAdminRedux/UserDataRedux/UserData.action";
+import { getUserinsta } from "../store/InstaReducer/action";
 
 const Instagram = () => {
   return (
@@ -50,81 +53,104 @@ const Instagram = () => {
 
 export default Instagram;
 const Post = () => {
+  const [bata, setBata] = useState(Data);
+  var Data = useSelector((store) => store.cartManager.cart);
+
+  let dispatch = useDispatch();
+  console.log(Data);
+  useEffect(() => {
+    dispatch(getUserinsta());
+  }, []);
+
   return (
-    <Box bg="white" borderColor={"gray.300"} borderWidth="thin" rounded={"md"}>
-      <Flex p="3" align={"center"}>
-        <Avatar
-          name="vinay Rinait"
-          size={"md"}
-          mr="4"
-          cursor={"pointer"}
-          src="https://bit.ly/chakra-jonathan-bakebwa"
-        />
-        <Box>
-          <Text fontWeight={"bold"} fontSize="sm">
-            vinit
-          </Text>
-          <Text cursor={"pointer"} fontSize="xs">
-            Gondia
-          </Text>
-        </Box>
-      </Flex>
-      <Box maxW={"614px"} ratio="1/1">
-        <Image
-          src="https://images.unsplash.com/photo-1553621042-f6e147245754?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80"
-          alt="caption"
-        />
-      </Box>
-      <Flex p="4">
-        <Stack isInline>
-          <Icon as={FiHeart} size="30" />
-          <Icon as={FiMessageCircle} size="30" />
-          <Icon as={FiSend} size="30" />
-        </Stack>
-        <Icon />
-      </Flex>
-      <Text fontWeight={"bold"} fontSize="sm" mx="4">
-        18 likes
-      </Text>
-      <Box px="4" mb="2">
-        <Text fontSize={"sm"} fontWeight="bold" mr="2">
-          vinit
-          <span fontSize="2px">I love it ❣</span>
-        </Text>
-      </Box>
-      <Text
-        color={"gray.500"}
-        mx="4"
-        textTransform={"uppercase"}
-        mb="2"
-        fontSize={"0.7rem"}
-      >
-        2 hour ago
-      </Text>
-      <InputGroup
-        borderTop={"1px solid"}
-        borderColor="gray.300"
-        size={"lg"}
-        roundedTop="none"
-      >
-        <InputLeftElement h={"4rem"}>
-          <Icon as={FaSmile} size="30" />
-        </InputLeftElement>
-        <Input
-          focusBorderColor="none"
-          h="16"
-          border={"none"}
-          type="text"
-          fontSize={"sm"}
-          placeholder="Add a comment..."
-        />
-        <InputRightElement h="4rem">
-          <Button fontSize={"sm"} mr="3" fontWeight={"bold"} color="blue.400">
-            Post
-          </Button>
-        </InputRightElement>
-      </InputGroup>
-    </Box>
+    <>
+      {Data.map((el) => (
+        <>
+          <Box
+            bg="white"
+            borderColor={"gray.300"}
+            borderWidth="thin"
+            rounded={"md"}
+            key={el.id}
+          >
+            <Flex p="3" align={"center"}>
+              <Avatar
+                name="vinay Rinait"
+                size={"md"}
+                mr="4"
+                cursor={"pointer"}
+                src="https://bit.ly/chakra-jonathan-bakebwa"
+              />
+              <Box>
+                <Text fontWeight={"bold"} fontSize="sm">
+                  vinit
+                </Text>
+                <Text cursor={"pointer"} fontSize="xs">
+                  Gondia
+                </Text>
+              </Box>
+            </Flex>
+            <Box maxW={"614px"} ratio="1/1" key={el.id}>
+              <Image src={el.src} alt="caption" />
+            </Box>
+            <Flex p="4">
+              <Stack isInline>
+                <Icon as={FiHeart} size="30" />
+                <Icon as={FiMessageCircle} size="30" />
+                <Icon as={FiSend} size="30" />
+              </Stack>
+              <Icon />
+            </Flex>
+            <Text fontWeight={"bold"} fontSize="sm" mx="4">
+              18 likes
+            </Text>
+            <Box px="4" mb="2">
+              <Text fontSize={"sm"} fontWeight="bold" mr="2">
+                vinit
+                <span fontSize="2px">I love it ❣</span>
+              </Text>
+            </Box>
+            <Text
+              color={"gray.500"}
+              mx="4"
+              textTransform={"uppercase"}
+              mb="2"
+              fontSize={"0.7rem"}
+            >
+              2 hour ago
+            </Text>
+            <InputGroup
+              borderTop={"1px solid"}
+              borderColor="gray.300"
+              size={"lg"}
+              roundedTop="none"
+            >
+              <InputLeftElement h={"4rem"}>
+                <Icon as={FaSmile} size="30" />
+              </InputLeftElement>
+              <Input
+                focusBorderColor="none"
+                h="16"
+                border={"none"}
+                type="text"
+                fontSize={"sm"}
+                placeholder="Add a comment..."
+              />
+              <InputRightElement h="4rem">
+                <Button
+                  fontSize={"sm"}
+                  mr="3"
+                  fontWeight={"bold"}
+                  color="blue.400"
+                >
+                  Post
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </Box>
+        </>
+      ))}
+    </>
   );
 };
 
@@ -143,10 +169,12 @@ const Navbar = () => {
       bg="white"
     >
       <Box>
-        <Image
-          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          alt="logoinsta"
-        />
+        <Link href="/">
+          <Image
+            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+            alt="logoinsta"
+          />
+        </Link>
       </Box>
       <Box>
         <InputGroup display={["none", "none", "block"]} mx="auto" size="sm">
@@ -229,7 +257,7 @@ const Stories = () => {
         <Box p="2px" mb={"1"} rounded="full" bg={"pink.400"}>
           <Avatar
             name="Dan Abrahmov"
-            src="https://bit.ly/dan-abramov"
+            src="https://avatars.githubusercontent.com/u/108014776?s=400&u=979d474245e8ae4a151e5efa5864df843cc844c3&v=4"
             w="16"
             h="16"
             cursor={"pointer"}
@@ -243,84 +271,84 @@ const Stories = () => {
         <Box p="2px" mb={"1"} rounded="full" bg={"pink.400"}>
           <Avatar
             name="Dan Abrahmov"
-            src="https://bit.ly/dan-abramov"
+            src="https://ca.slack-edge.com/T049JC010P9-U04B0DD1S04-7786c0c5f456-72"
             w="16"
             h="16"
             cursor={"pointer"}
           />
         </Box>
         <Text fontSize={"xs"} fontWeight="bold">
-          vinit
+          suneet
         </Text>
       </Flex>
       <Flex direction={"column"} maxW="68px" align={"center"}>
         <Box p="2px" mb={"1"} rounded="full" bg={"pink.400"}>
           <Avatar
             name="Dan Abrahmov"
-            src="https://bit.ly/dan-abramov"
+            src="https://ca.slack-edge.com/T049JC010P9-U04BME9RC7J-a1f62cba3012-72"
             w="16"
             h="16"
             cursor={"pointer"}
           />
         </Box>
         <Text fontSize={"xs"} fontWeight="bold">
-          vinit
+          hari
         </Text>
       </Flex>
       <Flex direction={"column"} maxW="68px" align={"center"}>
         <Box p="2px" mb={"1"} rounded="full" bg={"pink.400"}>
           <Avatar
             name="Dan Abrahmov"
-            src="https://bit.ly/dan-abramov"
+            src="https://ca.slack-edge.com/T049JC010P9-U04AXSANKJN-39cf4adb0935-72"
             w="16"
             h="16"
             cursor={"pointer"}
           />
         </Box>
         <Text fontSize={"xs"} fontWeight="bold">
-          vinit
+          priyanshu
         </Text>
       </Flex>
       <Flex direction={"column"} maxW="68px" align={"center"}>
         <Box p="2px" mb={"1"} rounded="full" bg={"pink.400"}>
           <Avatar
             name="Dan Abrahmov"
-            src="https://bit.ly/dan-abramov"
+            src="https://ca.slack-edge.com/T049JC010P9-U04AEEP1ZDM-74d6d5fcb1f8-72"
             w="16"
             h="16"
             cursor={"pointer"}
           />
         </Box>
         <Text fontSize={"xs"} fontWeight="bold">
-          vinit
+          vivek
         </Text>
       </Flex>
       <Flex direction={"column"} maxW="68px" align={"center"}>
         <Box p="2px" mb={"1"} rounded="full" bg={"pink.400"}>
           <Avatar
             name="Dan Abrahmov"
-            src="https://bit.ly/dan-abramov"
+            src="https://avatars.githubusercontent.com/u/107476738?v=4"
             w="16"
             h="16"
             cursor={"pointer"}
           />
         </Box>
         <Text fontSize={"xs"} fontWeight="bold">
-          vinit
+          pallavi
         </Text>
       </Flex>
       <Flex direction={"column"} maxW="68px" align={"center"}>
         <Box p="2px" mb={"1"} rounded="full" bg={"pink.400"}>
           <Avatar
             name="Dan Abrahmov"
-            src="https://bit.ly/dan-abramov"
+            src="https://media.licdn.com/dms/image/D4D03AQF98Dah2-61CA/profile-displayphoto-shrink_100_100/0/1664599021420?e=1677110400&v=beta&t=2OsArNt1W0bOc4-1WNOF6JnL4-VOwKa0yi2B0lezkjs"
             w="16"
             h="16"
             cursor={"pointer"}
           />
         </Box>
         <Text fontSize={"xs"} fontWeight="bold">
-          vinit
+          Prajwal
         </Text>
       </Flex>
       <Flex direction={"column"} maxW="68px" align={"center"}>
@@ -360,7 +388,7 @@ const Sidebar = () => {
       <Flex mt={"6"} align="center">
         <Avatar
           name="Dan Abrahmov"
-          src="https://bit.ly/dan-abramov"
+          src="https://avatars.githubusercontent.com/u/108014776?s=400&u=979d474245e8ae4a151e5efa5864df843cc844c3&v=4"
           flexShrink={"0"}
           mr="3"
           size={"lg"}
@@ -393,9 +421,7 @@ const Sidebar = () => {
         />
         <Box mr={"auto"}>
           <Box fontWeight={"bold"}>thesegunadebayo</Box>
-          <Text fontSize={"xl"} color="gray.500">
-            Pallavi Jain
-          </Text>
+          <Text fontSize={"xl"} color="gray.500"></Text>
         </Box>
         <Text ml="3" fontWeight={"bold"}>
           Follow

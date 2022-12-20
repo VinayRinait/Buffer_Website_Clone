@@ -1,4 +1,3 @@
-//
 import React, { useState } from "react";
 import {
   Box,
@@ -23,8 +22,6 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = React.useState(false);
 
-
-
   const getData = {
     email: email,
     password: password,
@@ -34,38 +31,31 @@ export const Login = () => {
       method: "GET",
 
       url: `https://mp0i41.sse.codesandbox.io/posts`,
-      data: getData
+      data: getData,
     }).then((res) => {
-      localStorage.setItem("userName", JSON.stringify(getData))
-      checkcredentials(res.data)
-
-    })
-
-  }
+      localStorage.setItem("userName", JSON.stringify(getData));
+      checkcredentials(res.data);
+    });
+  };
 
   const checkcredentials = (data) => {
     let filtered = data.filter((el) => {
-      return el.email === email && el.password === password
-    })
-    return finalcheck(filtered)
-  }
+      return el.email === email && el.password === password;
+    });
+    return finalcheck(filtered);
+  };
 
   const finalcheck = (filtered) => {
     if (filtered.length > 0) {
-      alert("login successfull")
-      setStatus(true)
+      alert("login successfull");
+      setStatus(true);
     } else {
-      alert("login failed")
+      alert("login failed");
     }
-  }
+  };
   if (status === true) {
-    return <Navigate to="/publish" />
+    return <Navigate to="/login/publish" />;
   }
-
-
-
-
-
 
   return (
     <>
@@ -80,7 +70,10 @@ export const Login = () => {
             {/* <Image boxSize="50px" src={Logo} alt="logo" />
             <Heading size="2xl">dda</Heading> */}
           </Flex>
-          <FormControl margin={"auto"} width={{ sm: "100%", md: "100%", lg: "70%" }}>
+          <FormControl
+            margin={"auto"}
+            width={{ sm: "100%", md: "100%", lg: "70%" }}
+          >
             <Stack>
               <Heading textAlign={"left"} size={"2xl"} marginBottom={"40px"}>
                 Log in
@@ -100,19 +93,21 @@ export const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-
-
-              <Input onClick={handleLogin} m={5} bg="#2c4bff" color={"white"} size="lg"
-                type="submit" value="Log in" />
-
-
+              <Input
+                onClick={handleLogin}
+                m={5}
+                bg="#2c4bff"
+                color={"white"}
+                size="lg"
+                type="submit"
+                value="Log in"
+              />
 
               <Box display={{ sm: "grid", md: "grid", lg: "flex" }}>
                 <Link to="/login/SignupPage/*">
-                  <Tag bg="transparent" m={5} >
+                  <Tag bg="transparent" m={5}>
                     Create an account
                   </Tag>
-
                 </Link>
 
                 <Tag bg="transparent" m={5}>
@@ -133,7 +128,12 @@ export const Login = () => {
             </Stack>
           </FormControl>
         </Box>
-        <Box backgroundColor={"yellow"} height={"700px"} width={"80%"} display={{ base: "none", sm: "none", md: "none", lg: "block" }}>
+        <Box
+          backgroundColor={"yellow"}
+          height={"700px"}
+          width={"80%"}
+          display={{ base: "none", sm: "none", md: "none", lg: "block" }}
+        >
           <Box textAlign={"left"} width={"450px"} mt={"80px"} ml={"80px"}>
             <Stack>
               <Button

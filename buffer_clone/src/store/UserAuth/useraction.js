@@ -8,8 +8,8 @@ import {
 export const GET_DATA = () => async (dispatch) => {
   dispatch({ type: GET_LOADING_DATA });
   try {
-    let data = await axios.get("https://9oze9f.sse.codesandbox.io/instagram");
-    dispatch({ type: GET_SUCCESS_DATA, payload: data });
+    let res = await axios.get("https://mp0i41.sse.codesandbox.io/users");
+    dispatch({ type: GET_SUCCESS_DATA, payload: res.data });
     console.log(data);
   } catch (error) {
     dispatch({ type: GET_DATA_ERROR });

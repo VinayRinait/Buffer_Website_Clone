@@ -24,7 +24,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/AllAdminRedux/AdminRedux/admin.actions";
 const Links = [
-  { title: "Channels", to: "/" },
+  { title: "Channels", to: "/adminchannel" },
   { title: "User Data", to: "/adminuserpage" },
 ];
 // { title: "Login", to: "/admin/login/*" },
@@ -54,7 +54,7 @@ export default function AdminNavbar() {
     if (isAuth) {
       dispatch(logout());
     } else {
-      navigate("/");
+      navigate("/adminchanel");
     }
   };
   return (

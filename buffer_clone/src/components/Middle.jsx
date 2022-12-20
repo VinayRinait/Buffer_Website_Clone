@@ -16,19 +16,19 @@ export const Middle = () => {
                 display={{ sm: "gird", md: "grid", lg: "flex" }}
                 p={20}
                 gap={10}
-                justifyContent={{
+                alignContent={{
                     base: "center",
                     sm: "center",
                     md: "center",
                     lg: "center",
                 }}
             >
-                <Box width={{ sm:"auto", md: "auto", lg: 600 }} textAlign="left" mt={20}>
+                <Box width={{ sm:"auto", md: "auto", lg: 600 }} mt={20}>
                     <Stack spacing={8} display={{ sm: "gird", md: "grid", lg: "flex" }} >
-                        <Heading size={{ sm: "md", md: "xl", lg: "2xl" }}>
+                        <Heading size={{ sm: "xl", md: "2xl", lg: "3xl" }}>
                             Grow your audience on social and beyond
                         </Heading>
-                        <Text fontSize={{ sm: "lg", md: "md", lg: "2xl" }}>
+                        <Text fontSize={{ sm: "md", md: "xl", lg: "2xl" }}>
                             Buffer helps you build an audience organically. We’re a
                             values-driven company that provides affordable, intuitive,
                             marketing tools for ambitious people and teams.

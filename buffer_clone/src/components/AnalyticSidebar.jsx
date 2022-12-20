@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import {
   IconButton,
   Avatar,
@@ -39,7 +39,10 @@ import { FaFacebookF, FaTiktok, FaBlogger } from "react-icons/fa";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 import Logo from "./../images/logo.png";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getUserinsta } from "./../store/InstaReducer/action";
+import { getUser } from "../store/AllAdminRedux/UserDataRedux/UserData.action";
+// import { Link } from "react-router-dom";
 const LinkItems = [
   { name: "INSTAGRAM", icon: FiInstagram },
   { name: "FACEBOOK", icon: FaFacebookF },
@@ -47,7 +50,135 @@ const LinkItems = [
   { name: "BLOGGER", icon: FaBlogger },
   { name: "Settings", icon: FiSettings },
 ];
+var user = JSON.parse(localStorage.getItem("userName"));
+let name = user.email;
 
+const ContentMiddle = () => {
+  let { cart } = useSelector((store) => store.cartManager);
+  var totalpost = cart.length;
+  let dispatch = useDispatch();
+  console.log(totalpost);
+  useEffect(() => {
+    dispatch(getUserinsta());
+  }, []);
+
+  return (
+    <Center>
+      <Stack
+        borderWidth="1px"
+        borderRadius="lg"
+        w={{ sm: "100%", md: "540px", lg: "100%" }}
+        height={{ sm: "476px", md: "20rem", lg: "100%" }}
+        direction={{ base: "column", md: "row" }}
+        bg={useColorModeValue("whiteAlpha.400", "gray.900")}
+        boxShadow={"2xl"}
+        padding={5}
+      >
+        <Flex flex={1} bg="blue.200">
+          <Image
+            objectFit="cover"
+            boxSize="100%"
+            src={
+              "https://ca.slack-edge.com/T049JC010P9-U04AXSANKJN-39cf4adb0935-72"
+            }
+          />
+        </Flex>
+        <Stack
+          flex={1}
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          p={1}
+          pt={2}
+        >
+          <Heading fontSize={"2xl"} fontFamily={"body"}>
+            {name}
+          </Heading>
+          <Text fontWeight={600} color={"gray.500"} size="sm" mb={4}>
+            @Priyanshu
+          </Text>
+          <Text
+            textAlign={"center"}
+            color={useColorModeValue("gray.700", "gray.400")}
+            px={3}
+          >
+            Actress, musician, songwriter and artist. PM for work inquires or
+            <Link href={"#"} color={"blue.400"}>
+              #tag
+            </Link>
+            me in your posts
+          </Text>
+          <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              #INSTAGRAM
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              #FACEBOOK
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              #music
+            </Badge>
+          </Stack>
+
+          <Stack
+            width={"100%"}
+            mt={"2rem"}
+            direction={"row"}
+            padding={2}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <Button
+              flex={1}
+              fontSize={"sm"}
+              rounded={"full"}
+              _focus={{
+                bg: "gray.200",
+              }}
+            >
+              FACEBOOK POST - 5
+            </Button>
+            <Link href="/instagram">
+              <Button
+                flex={1}
+                fontSize={"sm"}
+                rounded={"full"}
+                bg={"blue.400"}
+                color={"white"}
+                boxShadow={
+                  "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
+                }
+                _hover={{
+                  bg: "blue.500",
+                }}
+                _focus={{
+                  bg: "blue.500",
+                }}
+              >
+                INSTAGRAM POST -{totalpost}
+              </Button>
+            </Link>
+          </Stack>
+        </Stack>
+      </Stack>
+    </Center>
+  );
+};
 export default function AnalyticSidebar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -77,122 +208,7 @@ export default function AnalyticSidebar({ children }) {
     </Box>
   );
 }
-const ContentMiddle = () => {
-  return (
-    <Center>
-      <Stack
-        borderWidth="1px"
-        borderRadius="lg"
-        w={{ sm: "100%", md: "540px", lg: "100%" }}
-        height={{ sm: "476px", md: "20rem", lg: "100%" }}
-        direction={{ base: "column", md: "row" }}
-        bg={useColorModeValue("whiteAlpha.400", "gray.900")}
-        boxShadow={"2xl"}
-        padding={5}
-      >
-        <Flex flex={1} bg="blue.200">
-          <Image
-            objectFit="cover"
-            boxSize="100%"
-            src={
-              "https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-            }
-          />
-        </Flex>
-        <Stack
-          flex={1}
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          p={1}
-          pt={2}
-        >
-          <Heading fontSize={"2xl"} fontFamily={"body"}>
-            Lindsey James
-          </Heading>
-          <Text fontWeight={600} color={"gray.500"} size="sm" mb={4}>
-            @lindsey_jam3s
-          </Text>
-          <Text
-            textAlign={"center"}
-            color={useColorModeValue("gray.700", "gray.400")}
-            px={3}
-          >
-            Actress, musician, songwriter and artist. PM for work inquires or
-            <Link href={"#"} color={"blue.400"}>
-              #tag
-            </Link>
-            me in your posts
-          </Text>
-          <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>
-            <Badge
-              px={2}
-              py={1}
-              bg={useColorModeValue("gray.50", "gray.800")}
-              fontWeight={"400"}
-            >
-              #art
-            </Badge>
-            <Badge
-              px={2}
-              py={1}
-              bg={useColorModeValue("gray.50", "gray.800")}
-              fontWeight={"400"}
-            >
-              #photography
-            </Badge>
-            <Badge
-              px={2}
-              py={1}
-              bg={useColorModeValue("gray.50", "gray.800")}
-              fontWeight={"400"}
-            >
-              #music
-            </Badge>
-          </Stack>
 
-          <Stack
-            width={"100%"}
-            mt={"2rem"}
-            direction={"row"}
-            padding={2}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Button
-              flex={1}
-              fontSize={"sm"}
-              rounded={"full"}
-              _focus={{
-                bg: "gray.200",
-              }}
-            >
-              Message
-            </Button>
-            <Button
-              flex={1}
-              fontSize={"sm"}
-              rounded={"full"}
-              bg={"blue.400"}
-              color={"white"}
-              boxShadow={
-                "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
-              }
-              _hover={{
-                bg: "blue.500",
-              }}
-              _focus={{
-                bg: "blue.500",
-              }}
-            >
-              Follow
-            </Button>
-          </Stack>
-        </Stack>
-      </Stack>
-    </Center>
-  );
-};
 const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box
@@ -314,7 +330,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 <Avatar
                   size={"sm"}
                   src={
-                    "https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
+                    "https://ca.slack-edge.com/T049JC010P9-U04AXSANKJN-39cf4adb0935-72"
                   }
                 />
                 <VStack
@@ -323,7 +339,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Justina Clark</Text>
+                  <Text fontSize="sm">Priyanshu Kumar</Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
                   </Text>
