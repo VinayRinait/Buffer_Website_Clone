@@ -6,33 +6,37 @@ import { BsCaretDownFill } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import InnerModal from "./InnerModal";
-import Socialhub from "../images/logo.png"
+import Socialhub from "../images/logo.png";
 const Navbar2 = () => {
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+  var user = JSON.parse(localStorage.getItem("userName"));
+  let name = user.email;
+
   return (
     <>
       <Flex
-
-      
         alignItems="center"
         justifyContent="space-between"
-       
-        width= {["100%", "100%", "100%", "100%", "100%"]}
+        width={["100%", "100%", "100%", "100%", "100%"]}
         boxShadow={" rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"}
         overflowX="hidden"
         height="70px"
-
       >
-          <HamburgerIcon fontSize={30}  display={["block", "block", "block", "block", "none"]} onClick={() => { setShowModal(true) }} />
-        <Flex alignItems="center" 
-        display={[ "none", "none","none", "none", "flex"]}
-        width= {["0%", "0%", "0%", "0%", "60%"]}>
+        <HamburgerIcon
+          fontSize={30}
+          display={["block", "block", "block", "block", "none"]}
+          onClick={() => {
+            setShowModal(true);
+          }}
+        />
+        <Flex
+          alignItems="center"
+          display={["none", "none", "none", "none", "flex"]}
+          width={["0%", "0%", "0%", "0%", "60%"]}
+        >
           <NavLink to="/">
             <Flex pr="20px" pl="20px" gap="1">
-              <Image
-                w="30px"
-                src={Socialhub}
-              />
+              <Image w="30px" src={Socialhub} />
               <Text fontSize="xl" fontWeight="bold">
                 Buffer
               </Text>
@@ -60,6 +64,7 @@ const Navbar2 = () => {
                 color="rgb(99, 99, 99)"
                 _hover={{ backgroundColor: "#F5F5F5", color: "#2C4BFF" }}
               >
+                
                 <Text fontSize="md" fontWeight="bold">
                   Analytics
                 </Text>
@@ -80,8 +85,11 @@ const Navbar2 = () => {
             </NavLink>
           </Flex>
         </Flex>
-        <Flex alignItems="center" display={[ "none", "none","flex", "flex", "flex"]}
-        width= {["50%", "50%", "80%", "80%", "50%"]}>
+        <Flex
+          alignItems="center"
+          display={["none", "none", "flex", "flex", "flex"]}
+          width={["50%", "50%", "80%", "80%", "50%"]}
+        >
           <NavLink to="#">
             <Flex
               alignItems="center"
@@ -138,72 +146,19 @@ const Navbar2 = () => {
               gap="8px"
               _hover={{ backgroundColor: "#F5F5F5" }}
             >
-              <Text color="#D5C4BA">eve.holt@reqres.in</Text>
-              <FaUserCircle
-                icon="fa-duotone"
-                size="26px"
-                color="#121E66"
-              />
+              <Text color="#D5C4BA">{name}</Text>
+              <FaUserCircle icon="fa-duotone" size="26px" color="#121E66" />
             </Flex>
           </NavLink>
         </Flex>
-        {
-          showModal? <InnerModal show={showModal} setModal={setShowModal}/>:""
-        }
+        {showModal ? (
+          <InnerModal show={showModal} setModal={setShowModal} />
+        ) : (
+          ""
+        )}
       </Flex>
-
     </>
-  )
-}
+  );
+};
 
-export default Navbar2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Navbar2;

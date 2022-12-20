@@ -16,7 +16,7 @@ import { login } from "../../store/AllAdminRedux/AdminRedux/admin.actions";
 
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   let [loginCreds, setLoginCreds] = useState({});
@@ -45,7 +45,8 @@ const AdminLogin = () => {
       if (state.from) {
         navigate(state.from, { replace: true });
       } else {
-        navigate("/");
+        navigate("/adminchanel");
+        return <Navigate to="/adminchanel" />;
       }
     }
   }, [isAuth, navigate]);

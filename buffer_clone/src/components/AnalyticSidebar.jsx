@@ -42,6 +42,7 @@ import Logo from "./../images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserinsta } from "./../store/InstaReducer/action";
 import { getUser } from "../store/AllAdminRedux/UserDataRedux/UserData.action";
+// import { Link } from "react-router-dom";
 const LinkItems = [
   { name: "INSTAGRAM", icon: FiInstagram },
   { name: "FACEBOOK", icon: FaFacebookF },
@@ -49,36 +50,9 @@ const LinkItems = [
   { name: "BLOGGER", icon: FaBlogger },
   { name: "Settings", icon: FiSettings },
 ];
+var user = JSON.parse(localStorage.getItem("userName"));
+let name = user.email;
 
-export default function AnalyticSidebar({ children }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  return (
-    <Box minH="100vh" bg={useColorModeValue("whiteAlpha.400", "gray.900")}>
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
-      />
-      <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full"
-      >
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
-        </DrawerContent>
-      </Drawer>
-      <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
-        <ContentMiddle />
-      </Box>
-    </Box>
-  );
-}
 const ContentMiddle = () => {
   let { cart } = useSelector((store) => store.cartManager);
   var totalpost = cart.length;
@@ -118,7 +92,7 @@ const ContentMiddle = () => {
           pt={2}
         >
           <Heading fontSize={"2xl"} fontFamily={"body"}>
-            Priyanshu Kumar
+            {name}
           </Heading>
           <Text fontWeight={600} color={"gray.500"} size="sm" mb={4}>
             @Priyanshu
@@ -179,30 +153,62 @@ const ContentMiddle = () => {
             >
               FACEBOOK POST - 5
             </Button>
-            <Button
-              flex={1}
-              fontSize={"sm"}
-              rounded={"full"}
-              bg={"blue.400"}
-              color={"white"}
-              boxShadow={
-                "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
-              }
-              _hover={{
-                bg: "blue.500",
-              }}
-              _focus={{
-                bg: "blue.500",
-              }}
-            >
-              INSTAGRAM POST -{totalpost}
-            </Button>
+            <Link href="/instagram">
+              <Button
+                flex={1}
+                fontSize={"sm"}
+                rounded={"full"}
+                bg={"blue.400"}
+                color={"white"}
+                boxShadow={
+                  "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
+                }
+                _hover={{
+                  bg: "blue.500",
+                }}
+                _focus={{
+                  bg: "blue.500",
+                }}
+              >
+                INSTAGRAM POST -{totalpost}
+              </Button>
+            </Link>
           </Stack>
         </Stack>
       </Stack>
     </Center>
   );
 };
+export default function AnalyticSidebar({ children }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <Box minH="100vh" bg={useColorModeValue("whiteAlpha.400", "gray.900")}>
+      <SidebarContent
+        onClose={() => onClose}
+        display={{ base: "none", md: "block" }}
+      />
+      <Drawer
+        autoFocus={false}
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="full"
+      >
+        <DrawerContent>
+          <SidebarContent onClose={onClose} />
+        </DrawerContent>
+      </Drawer>
+      <MobileNav onOpen={onOpen} />
+      <Box ml={{ base: 0, md: 60 }} p="4">
+        {children}
+        <ContentMiddle />
+      </Box>
+    </Box>
+  );
+}
+
 const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box
@@ -333,7 +339,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Justina Clark</Text>
+                  <Text fontSize="sm">Priyanshu Kumar</Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
                   </Text>
