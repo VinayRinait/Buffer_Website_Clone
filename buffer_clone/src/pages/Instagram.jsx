@@ -90,8 +90,8 @@ const Post = () => {
                 </Text>
               </Box>
             </Flex>
-            <Box maxW={"614px"} ratio="1/1">
-              <Image src={el.imageURL} alt="caption" />
+            <Box maxW={"614px"} ratio="1/1" key={el.id}>
+              <Image src={el.src} alt="caption" />
             </Box>
             <Flex p="4">
               <Stack isInline>
@@ -169,10 +169,12 @@ const Navbar = () => {
       bg="white"
     >
       <Box>
-        <Image
-          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          alt="logoinsta"
-        />
+        <Link href="/">
+          <Image
+            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+            alt="logoinsta"
+          />
+        </Link>
       </Box>
       <Box>
         <InputGroup display={["none", "none", "block"]} mx="auto" size="sm">

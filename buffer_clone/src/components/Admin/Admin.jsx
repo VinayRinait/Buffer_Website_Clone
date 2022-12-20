@@ -12,7 +12,7 @@ const Admin = () => {
       <AdminNavbar />
       <Routes>
         <Route
-          path="/adminchanel"
+          path="/"
           element={
             <RequiredAuth>
               <AdminChannelPage />

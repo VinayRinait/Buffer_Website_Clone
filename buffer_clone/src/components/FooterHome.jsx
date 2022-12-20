@@ -25,10 +25,10 @@ export const Footer = () => {
       direction={["column", "column", "column", "row"]}
     >
       <Flex direction="column" mb="20px" mr="20px">
-        <Heading fontSize={[18, 22, 30, 46]}>Buffer</Heading>
+        <Heading fontSize={[18, 22, 30, 46]}>Social Hub</Heading>
         <Flex
           gap="1rem"
-          fontSize={25}
+          fontSize={15}
           mt={[".75rem", ".75rem", "1rem", "1.5rem"]}
         >
           <BsInstagram />

@@ -64,6 +64,7 @@ const Navbar2 = () => {
                 color="rgb(99, 99, 99)"
                 _hover={{ backgroundColor: "#F5F5F5", color: "#2C4BFF" }}
               >
+                
                 <Text fontSize="md" fontWeight="bold">
                   Analytics
                 </Text>
