@@ -84,7 +84,11 @@ export function Navbar() {
               marginLeft={10}
               boxSize="110px"
               borderRadius={"80px"}
+<<<<<<< HEAD
+              width={{ sm: "10%", md: "30%", lg: "55%" }}
+=======
               width={{ sm: "50px", md: "50px", lg: "55%" }}
+>>>>>>> 99d588eeb917e6a1b7b6c28d40fe5ddc49232605
               src={Logo}
               alt="logo"
             />
@@ -105,7 +109,11 @@ export function Navbar() {
             <Link to={"/login"}>Login</Link>
           </Box>
           <Box fontSize={20} color="blue" margin-top={20}>
+<<<<<<< HEAD
+            <Link to={"/admin/login/*"}>Admin</Link>
+=======
             <Link to={"/admin/*"}>Admin</Link>
+>>>>>>> 99d588eeb917e6a1b7b6c28d40fe5ddc49232605
           </Box>
           <Button
             display={{ base: "none", md: "inline-flex" }}

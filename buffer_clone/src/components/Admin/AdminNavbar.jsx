@@ -27,6 +27,7 @@ const Links = [
   { title: "Channels", to: "/adminchannel" },
   { title: "User Data", to: "/adminuserpage" },
 ];
+// { title: "Login", to: "/admin/login/*" },
 // { title: "Login", to: "/login" },
 const NavLink = ({ children }) => (
   <Link
