@@ -45,7 +45,7 @@ const AdminLogin = () => {
       if (state.from) {
         navigate(state.from, { replace: true });
       } else {
-        navigate("/");
+        navigate("/admin/login/*");
       }
     }
   }, [isAuth, navigate]);

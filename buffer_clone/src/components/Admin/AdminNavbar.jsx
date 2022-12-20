@@ -19,7 +19,7 @@ import {
 } from "@chakra-ui/react";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
-import socialhub from "../Image/hub.png";
+import socialhub from "../../images/logo.png";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/AllAdminRedux/AdminRedux/admin.actions";
@@ -27,6 +27,7 @@ const Links = [
   { title: "Channels", to: "/" },
   { title: "User Data", to: "/adminuserpage" },
 ];
+// { title: "Login", to: "/admin/login/*" },
 // { title: "Login", to: "/login" },
 const NavLink = ({ children }) => (
   <Link
