@@ -1,18 +1,21 @@
-import { Box, Flex,Image,VStack,Text} from '@chakra-ui/react'
+import { Box, Flex,Heading,Image,VStack,Text,Button } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import {ImCross} from "react-icons/im";
-
+import {BiChevronRight} from "react-icons/bi"
 import { NavLink } from "react-router-dom";
-
+import { FaUserFriends } from "react-icons/fa";
+import { BsCaretDownFill } from "react-icons/bs";
+import { FaUserCircle } from "react-icons/fa";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {Link} from "react-router-dom"
-import Socialhub from "../images/logo.png"
+
 
 const InnerModal = ({show,setModal}) => {
   return (
 	<Box h="100vh" w="98vw"
-	 border="1px black solid" 
+	 border="1px red solid" 
 	 position="fixed"
-	 bg="lightgrey"
+	 bg="#178EEA"
 	 zIndex={2222}
 	 top={0}
 	 left={0}
@@ -21,14 +24,12 @@ const InnerModal = ({show,setModal}) => {
 		<Flex justify="space-between" align="center" mb={-7} >
 		<Link to={"/"}><Image
           // border="1px"
-          src={Socialhub}
+          src="https://logodix.com/logo/2043884.jpg"
 
-          width={100}
+          width={250}
           alt="logo"
-          ml={5}
-          mt={2}
         /></Link>
-		<ImCross fontSize={"30px"} color="black" onClick= {()=>{setModal(false)
+		<ImCross fontSize={"30px"} color="white" onClick= {()=>{setModal(false)
 	}}/>
 		</Flex>
 		<VStack spacing={8}>

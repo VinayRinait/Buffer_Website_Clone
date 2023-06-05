@@ -1,36 +1,24 @@
-import Admin from "./components/Admin/Admin";
-import AllRoute from "./components/AllRoutes/AllRoute";
 
-import AddPost from "./components/Calender/AddPost";
-import Analytic from "./pages/Analytic";
-import Instagram from "./pages/Instagram";
-import Publishing from "./pages/Publishing";
-const App = () => {
+
+import LineChart from "./components/Test";
+import { Addcannel } from "./pages/Addcannel";
+import { Analytics } from "./pages/Analytics";
+import { Channels } from "./pages/Channels";
+import Facebookanalytics from "./pages/Facebookanalytics";
+import { Facebookdata } from "./pages/Facebookdata";
+import Instagramanalytics from "./pages/Instagramanalytics";
+import { Mainroute } from "./pages/Mainroute";
+
+function App() {
   return (
-    <>
-      <div>
-        {/* <Admin /> */}
-        {/* <Instagram /> */}
+    <div className="App">
 
-        {/* <Analytic /> */}
-        {/* <Analytic /> */}
-        {/* <Publishing /> */}
-        <AllRoute />
-      </div>
-    </>
+
+     <Mainroute />
+
+
+    </div>
   );
-};
-export default App;
+}
 
-// import Admin from "./components/Admin/Admin";
-// import AddPost from "./components/Calender/AddPost";
-// import Instagram from "./pages/Instagram";
-// const App = () => {
-//   return (
-//     <div>
-//       {/* <Admin /> */}
-//       {/* <Instagram /> */}
-//       <AddPost />
-//     </div>
-//   );
-// };
+export default App;
